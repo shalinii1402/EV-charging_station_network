@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Pricing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                    <span>ChargeNet EV</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html" class="active">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li class="mobile-only"><a href="login.html" class="nav-btn-style login-btn">Login</a></li>
+                        <li class="mobile-only"><a href="register.html" class="nav-btn-style signup-btn">Signup</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="dashboard.html" class="btn btn-sm btn-outline">Dashboard</a>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Transparent Pricing</h1>
+                <p class="page-subtitle">Simple, fair pricing with no hidden fees</p>
+            </div>
+        </section>
+
+        <!-- Pay-Per-Use -->
+        <section class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Pay-Per-Use Charging</h2>
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Standard Charging</h3>
+                            <div class="pricing-info">
+                                <span class="price">$0.20</span>
+                                <span class="unit">per kWh</span>
+                            </div>
+                            <div class="connection-fee">+$1.00 connection fee</div>
+                        </div>
+                        <div class="pricing-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Level 2 charging stations</li>
+                                <li><i class="fas fa-check"></i> 7.2kW - 22kW power</li>
+                                <li><i class="fas fa-check"></i> 3-8 hour full charge</li>
+                                <li><i class="fas fa-check"></i> Available at all locations</li>
+                                <li><i class="fas fa-check"></i> No monthly commitment</li>
+                            </ul>
+                            <div class="pricing-example">
+                                <p><strong>Example:</strong> 40kWh charge = $9.00 total</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="selectPricing('standard')">Start Charging</button>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-badge">Most Popular</div>
+                        <div class="pricing-header">
+                            <h3>Fast Charging</h3>
+                            <div class="pricing-info">
+                                <span class="price">$0.30</span>
+                                <span class="unit">per kWh</span>
+                            </div>
+                            <div class="connection-fee">+$2.00 connection fee</div>
+                        </div>
+                        <div class="pricing-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> DC fast charging stations</li>
+                                <li><i class="fas fa-check"></i> 50kW - 150kW power</li>
+                                <li><i class="fas fa-check"></i> 30-45 minute charge time</li>
+                                <li><i class="fas fa-check"></i> 200+ station locations</li>
+                                <li><i class="fas fa-check"></i> Real-time availability</li>
+                            </ul>
+                            <div class="pricing-example">
+                                <p><strong>Example:</strong> 40kWh charge = $14.00 total</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="selectPricing('fast')">Start Charging</button>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Ultra-Fast DC</h3>
+                            <div class="pricing-info">
+                                <span class="price">$0.40</span>
+                                <span class="unit">per kWh</span>
+                            </div>
+                            <div class="connection-fee">+$3.00 connection fee</div>
+                        </div>
+                        <div class="pricing-details">
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Ultra-fast DC stations</li>
+                                <li><i class="fas fa-check"></i> 150kW - 350kW power</li>
+                                <li><i class="fas fa-check"></i> 15-20 minute charge time</li>
+                                <li><i class="fas fa-check"></i> 50+ premium locations</li>
+                                <li><i class="fas fa-check"></i> Liquid-cooled cables</li>
+                            </ul>
+                            <div class="pricing-example">
+                                <p><strong>Example:</strong> 40kWh charge = $19.00 total</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="selectPricing('ultra-fast')">Start Charging</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monthly Subscription -->
+        <section class="subscription-section">
+            <div class="container">
+                <h2 class="section-title">Monthly Subscription Plans</h2>
+                <div class="subscription-plans">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Basic Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">9</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">Perfect for occasional drivers</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to all stations</li>
+                            <li><i class="fas fa-check"></i> Standard charging rates</li>
+                            <li><i class="fas fa-check"></i> Mobile app access</li>
+                            <li><i class="fas fa-check"></i> Basic charging history</li>
+                            <li><i class="fas fa-times"></i> Priority booking</li>
+                            <li><i class="fas fa-times"></i> Discounts on charging</li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="selectPlan('basic')">Choose Basic</button>
+                    </div>
+
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Best Value</div>
+                        <div class="plan-header">
+                            <h3>Premium Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">19</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">Ideal for daily commuters</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to all stations</li>
+                            <li><i class="fas fa-check"></i> 10% discount on all charging</li>
+                            <li><i class="fas fa-check"></i> Priority booking access</li>
+                            <li><i class="fas fa-check"></i> Advanced analytics</li>
+                            <li><i class="fas fa-check"></i> 2 free charging sessions/month</li>
+                            <li><i class="fas fa-check"></i> Premium support</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="selectPlan('premium')">Choose Premium</button>
+                    </div>
+
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Business Plan</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">49</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <p class="plan-description">For fleet and business users</p>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Unlimited station access</li>
+                            <li><i class="fas fa-check"></i> 20% discount on charging</li>
+                            <li><i class="fas fa-check"></i> Fleet management tools</li>
+                            <li><i class="fas fa-check"></i> Multi-user accounts</li>
+                            <li><i class="fas fa-check"></i> Custom billing</li>
+                            <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="selectPlan('business')">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Plans -->
+        <section class="fleet-plans">
+            <div class="container">
+                <h2 class="section-title">Fleet Charging Plans</h2>
+                <div class="fleet-plans-grid">
+                    <div class="fleet-card">
+                        <div class="fleet-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Small Fleet</h3>
+                        <div class="fleet-price">
+                            <span class="price">$149</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>For 5-10 vehicles</p>
+                        <ul class="fleet-features">
+                            <li><i class="fas fa-check"></i> Up to 10 vehicles</li>
+                            <li><i class="fas fa-check"></i> 15% charging discount</li>
+                            <li><i class="fas fa-check"></i> Basic fleet dashboard</li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="selectFleetPlan('small')">Get Quote</button>
+                    </div>
+
+                    <div class="fleet-card">
+                        <div class="fleet-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Medium Fleet</h3>
+                        <div class="fleet-price">
+                            <span class="price">$299</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p>For 11-50 vehicles</p>
+                        <ul class="fleet-features">
+                            <li><i class="fas fa-check"></i> Up to 50 vehicles</li>
+                            <li><i class="fas fa-check"></i> 20% charging discount</li>
+                            <li><i class="fas fa-check"></i> Advanced fleet analytics</li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="selectFleetPlan('medium')">Get Quote</button>
+                    </div>
+
+                    <div class="fleet-card">
+                        <div class="fleet-icon">
+                            <i class="fas fa-bus"></i>
+                        </div>
+                        <h3>Enterprise Fleet</h3>
+                        <div class="fleet-price">
+                            <span class="price">Custom</span>
+                            <span class="period">pricing</span>
+                        </div>
+                        <p>For 50+ vehicles</p>
+                        <ul class="fleet-features">
+                            <li><i class="fas fa-check"></i> Unlimited vehicles</li>
+                            <li><i class="fas fa-check"></i> 25%+ charging discount</li>
+                            <li><i class="fas fa-check"></i> Custom solutions</li>
+                        </ul>
+                        <button class="btn btn-outline" onclick="selectFleetPlan('enterprise')">Contact Sales</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-table">
+            <div class="container">
+                <h2 class="section-title">Plan Comparison</h2>
+                <div class="comparison-wrapper">
+                    <table class="comparison">
+                        <thead>
+                            <tr>
+                                <th>Features</th>
+                                <th>Pay-Per-Use</th>
+                                <th>Basic</th>
+                                <th>Premium</th>
+                                <th>Business</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monthly Fee</td>
+                                <td>$0</td>
+                                <td>$9</td>
+                                <td>$19</td>
+                                <td>$49</td>
+                            </tr>
+                            <tr>
+                                <td>Charging Discount</td>
+                                <td>None</td>
+                                <td>None</td>
+                                <td>10%</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>Connection Fee</td>
+                                <td>$1-3</td>
+                                <td>Waived</td>
+                                <td>Waived</td>
+                                <td>Waived</td>
+                            </tr>
+                            <tr>
+                                <td>Priority Booking</td>
+                                <td><i class="fas fa-times"></i></td>
+                                <td><i class="fas fa-times"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Free Sessions</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>2/month</td>
+                                <td>5/month</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics</td>
+                                <td>Basic</td>
+                                <td>Basic</td>
+                                <td>Advanced</td>
+                                <td>Enterprise</td>
+                            </tr>
+                            <tr>
+                                <td>Support</td>
+                                <td>Standard</td>
+                                <td>Standard</td>
+                                <td>Premium</td>
+                                <td>Dedicated</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hidden Charges Transparency -->
+        <section class="transparency">
+            <div class="container">
+                <h2 class="section-title">No Hidden Charges - Complete Transparency</h2>
+                <div class="transparency-grid">
+                    <div class="transparency-card">
+                        <div class="transparency-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>What You See Is What You Pay</h3>
+                        <p>All prices displayed include taxes and fees. No surprise charges on your bill.</p>
+                    </div>
+                    <div class="transparency-card">
+                        <div class="transparency-icon">
+                            <i class="fas fa-receipt"></i>
+                        </div>
+                        <h3>Detailed Billing</h3>
+                        <p>Every charge is itemized with exact kWh used, duration, and per-kWh rate.</p>
+                    </div>
+                    <div class="transparency-card">
+                        <div class="transparency-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>No Idle Fees After 60 Minutes</h3>
+                        <p>Unlike competitors, we don't charge idle fees unless your car is parked for over 60 minutes
+                            after charging completes.</p>
+                    </div>
+                    <div class="transparency-card">
+                        <div class="transparency-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h3>Easy Refunds</h3>
+                        <p>If you're charged incorrectly, we'll refund the difference within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="pricing-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Start Charging?</h2>
+                    <p>Join thousands of EV drivers who trust ChargeNet EV for transparent, affordable charging.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-large" onclick="showRegistrationModal()">Start Charging
+                            Now</button>
+                        <a href="stations.html" class="btn btn-outline btn-large">Find Stations</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        <span>ChargeNet EV</span>
+                    </div>
+                    <p>Powering the future of sustainable transportation with reliable EV charging solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>EV Services</h4>
+                    <ul>
+                        <li><a href="services.html">Fast Charging</a></li>
+                        <li><a href="services.html">Home Installation</a></li>
+                        <li><a href="services.html">Fleet Solutions</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
+                        href="terms.html">Terms of Service</a> | <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

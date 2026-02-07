@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                    <span>ChargeNet EV</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html" class="active">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li class="mobile-only"><a href="login.html" class="nav-btn-style login-btn">Login</a></li>
+                        <li class="mobile-only"><a href="register.html" class="nav-btn-style signup-btn">Signup</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="dashboard.html" class="btn btn-sm btn-outline">Dashboard</a>
+                    <button id="theme-toggle" class="btn btn-outline btn-sm" aria-label="Toggle Dark Mode"
+                        style="padding: 0.5rem 0.75rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Our EV Services</h1>
+                <p class="page-subtitle">Comprehensive charging solutions for every need</p>
+            </div>
+        </section>
+
+        <!-- Fast Charging -->
+        <section class="service-section">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Fast Charging</h2>
+                            <p>Our fast charging stations deliver 50kW power, charging most EVs from 20% to 80% in just
+                                45 minutes. Perfect for quick top-ups during your daily routine.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 50kW DC fast charging</li>
+                                <li><i class="fas fa-check"></i> 45-minute average charge time</li>
+                                <li><i class="fas fa-check"></i> Compatible with most EV models</li>
+                                <li><i class="fas fa-check"></i> Real-time charging monitoring</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">200+</span>
+                                    <span class="stat-label">Fast Stations</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">45min</span>
+                                    <span class="stat-label">Avg. Charge Time</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('fast-charging')">Learn
+                                More</button>
+                        </div>
+                    </div>
+                    <div class="service-visual">
+                        <img src="assets/images/fast-charging.jpg" alt="Fast Charging">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ultra-Fast DC Charging -->
+        <section class="service-section reverse">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-visual">
+                        <img src="assets/images/ultra-fast-charging.jpg" alt="Ultra-Fast DC Charging">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Ultra-Fast DC Charging</h2>
+                            <p>Experience lightning-fast charging with our 350kW ultra-fast stations. Charge your EV
+                                from 10% to 80% in just 15-20 minutes, making long-distance travel effortless.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Up to 350kW charging power</li>
+                                <li><i class="fas fa-check"></i> 15-20 minute ultra-fast charging</li>
+                                <li><i class="fas fa-check"></i> CCS and CHAdeMO compatible</li>
+                                <li><i class="fas fa-check"></i> Liquid-cooled cables</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">50+</span>
+                                    <span class="stat-label">Ultra-Fast Stations</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">15min</span>
+                                    <span class="stat-label">Quick Charge</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('ultra-fast')">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Charger Installation -->
+        <section class="service-section">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Home Charger Installation</h2>
+                            <p>Get a professional home charging station installed by our certified technicians. Enjoy
+                                the convenience of charging your EV overnight at home.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Level 2 home charger installation</li>
+                                <li><i class="fas fa-check"></i> Certified electrician service</li>
+                                <li><i class="fas fa-check"></i> Smart charger with app control</li>
+                                <li><i class="fas fa-check"></i> Warranty and maintenance included</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">1000+</span>
+                                    <span class="stat-label">Home Installations</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">7.2kW</span>
+                                    <span class="stat-label">Home Charger Power</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('home-installation')">Get
+                                Quote</button>
+                        </div>
+                    </div>
+                    <div class="service-visual">
+                        <img src="assets/images/home-charger.jpg" alt="Home Charger Installation">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet Charging -->
+        <section class="service-section reverse">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-visual">
+                        <img src="assets/images/fleet-charging.jpg" alt="Fleet Charging">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Fleet Charging Solutions</h2>
+                            <p>Comprehensive charging infrastructure for businesses with electric vehicle fleets. Manage
+                                multiple vehicles, track usage, and optimize charging schedules.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> Multi-vehicle charging stations</li>
+                                <li><i class="fas fa-check"></i> Fleet management dashboard</li>
+                                <li><i class="fas fa-check"></i> Custom charging schedules</li>
+                                <li><i class="fas fa-check"></i> Priority support for businesses</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">500+</span>
+                                    <span class="stat-label">Fleet Customers</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">24/7</span>
+                                    <span class="stat-label">Fleet Support</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('fleet')">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Green Energy Integration -->
+        <section class="service-section">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Green Energy Integration</h2>
+                            <p>Power your EV with 100% renewable energy. Our stations are integrated with solar and wind
+                                power sources for truly sustainable charging.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 100% renewable energy sources</li>
+                                <li><i class="fas fa-check"></i> Solar-powered stations</li>
+                                <li><i class="fas fa-check"></i> Carbon-neutral charging</li>
+                                <li><i class="fas fa-check"></i> Environmental impact tracking</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">75%</span>
+                                    <span class="stat-label">Renewable Energy</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">25K</span>
+                                    <span class="stat-label">Tons CO₂ Saved</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('green-energy')">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="service-visual">
+                        <img src="assets/images/green-energy.jpg" alt="Green Energy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maintenance & Support -->
+        <section class="service-section reverse">
+            <div class="container">
+                <div class="service-card">
+                    <div class="service-visual">
+                        <img src="assets/images/maintenance.jpg" alt="Maintenance & Support">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="service-info">
+                            <h2>Maintenance & Support</h2>
+                            <p>Keep your charging infrastructure running smoothly with our comprehensive maintenance and
+                                24/7 technical support services.</p>
+                            <ul class="service-features">
+                                <li><i class="fas fa-check"></i> 24/7 technical support</li>
+                                <li><i class="fas fa-check"></i> Preventive maintenance programs</li>
+                                <li><i class="fas fa-check"></i> Remote monitoring & diagnostics</li>
+                                <li><i class="fas fa-check"></i> Emergency repair services</li>
+                            </ul>
+                            <div class="service-stats">
+                                <div class="stat">
+                                    <span class="stat-number">99.9%</span>
+                                    <span class="stat-label">Uptime Guarantee</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">30min</span>
+                                    <span class="stat-label">Response Time</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="requestService('maintenance')">Contact
+                                Support</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Process -->
+        <section class="service-process">
+            <div class="container">
+                <h2 class="section-title">How Our Service Works</h2>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Consultation</h3>
+                        <p>Discuss your charging needs with our experts</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Assessment</h3>
+                        <p>Site evaluation and solution design</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Installation</h3>
+                        <p>Professional installation and setup</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Training</h3>
+                        <p>User training and system handover</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <h3>Support</h3>
+                        <p>Ongoing maintenance and support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service CTA -->
+        <section class="service-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Need Custom EV Charging Solutions?</h2>
+                    <p>Our team of experts is ready to design the perfect charging infrastructure for your specific
+                        needs.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-large" onclick="showConsultationModal()">Schedule
+                            Consultation</button>
+                        <a href="contact.html" class="btn btn-outline btn-large">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        <span>ChargeNet EV</span>
+                    </div>
+                    <p>Powering the future of sustainable transportation with reliable EV charging solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>EV Services</h4>
+                    <ul>
+                        <li><a href="services.html">Fast Charging</a></li>
+                        <li><a href="services.html">Home Installation</a></li>
+                        <li><a href="services.html">Fleet Solutions</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
+                        href="terms.html">Terms of Service</a> | <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

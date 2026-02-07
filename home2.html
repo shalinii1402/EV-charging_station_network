@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Home 2</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                    <span>ChargeNet EV</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html" class="active">Home 2</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li class="mobile-only"><a href="login.html" class="nav-btn-style login-btn">Login</a></li>
+                        <li class="mobile-only"><a href="register.html" class="nav-btn-style signup-btn">Signup</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="dashboard.html" class="btn btn-sm btn-outline">Dashboard</a>
+                    <button id="theme-toggle" class="btn btn-outline btn-sm" aria-label="Toggle Dark Mode"
+                        style="padding: 0.5rem 0.75rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Full-screen Hero -->
+        <section class="hero-full">
+            <div class="hero-full-bg">
+                <img src="assets/images/home2-banner.jpg" alt="EV Charging Network">
+                <div class="video-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-full-content">
+                    <h1>Smart Charging Network</h1>
+                    <p>Experience the future of EV charging with our intelligent, connected network of stations across
+                        the city.</p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number" data-target="500">0</span>
+                            <span class="stat-label">Stations</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="50000">0</span>
+                            <span class="stat-label">Users</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-target="1000000">0</span>
+                            <span class="stat-label">Charges</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="stations.html" class="btn btn-primary btn-large">Explore Network</a>
+                        <a href="register.html" class="btn btn-outline btn-large">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Charging Network Overview -->
+        <section class="network-overview">
+            <div class="container">
+                <h2 class="section-title">Our Smart Charging Network</h2>
+                <div class="network-content">
+                    <div class="network-info">
+                        <h3>Connected & Intelligent</h3>
+                        <p>Our network uses AI-powered algorithms to optimize charging schedules, reduce wait times, and
+                            maximize station efficiency.</p>
+                        <ul class="network-features">
+                            <li><i class="fas fa-check"></i> Real-time station monitoring</li>
+                            <li><i class="fas fa-check"></i> Predictive maintenance</li>
+                            <li><i class="fas fa-check"></i> Dynamic pricing optimization</li>
+                            <li><i class="fas fa-check"></i> Smart load balancing</li>
+                        </ul>
+                        <a href="services.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                    <div class="network-visual">
+                        <div class="network-map">
+                            <div class="map-point active"></div>
+                            <div class="map-point"></div>
+                            <div class="map-point"></div>
+                            <div class="map-point"></div>
+                            <div class="map-point"></div>
+                            <div class="network-lines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscription Plans Preview -->
+        <section class="subscription-preview">
+            <div class="container">
+                <h2 class="section-title">Flexible Subscription Plans</h2>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Basic</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">9</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to all stations</li>
+                            <li><i class="fas fa-check"></i> Standard charging rates</li>
+                            <li><i class="fas fa-check"></i> Mobile app access</li>
+                            <li><i class="fas fa-times"></i> Priority booking</li>
+                        </ul>
+                        <a href="pricing.html" class="btn btn-outline">Choose Plan</a>
+                    </div>
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Popular</div>
+                        <div class="plan-header">
+                            <h3>Premium</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">19</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to all stations</li>
+                            <li><i class="fas fa-check"></i> 10% discount on charging</li>
+                            <li><i class="fas fa-check"></i> Priority booking</li>
+                            <li><i class="fas fa-check"></i> Free charging sessions</li>
+                        </ul>
+                        <a href="pricing.html" class="btn btn-primary">Choose Plan</a>
+                    </div>
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Business</h3>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">49</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Unlimited access</li>
+                            <li><i class="fas fa-check"></i> 20% discount on charging</li>
+                            <li><i class="fas fa-check"></i> Fleet management</li>
+                            <li><i class="fas fa-check"></i> Dedicated support</li>
+                        </ul>
+                        <a href="pricing.html" class="btn btn-outline">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Impact -->
+        <section class="sustainability">
+            <div class="container">
+                <h2 class="section-title">Our Environmental Impact</h2>
+                <div class="impact-stats">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="impact-number">
+                            <span class="counter" data-target="25000">0</span>
+                            <span>tons CO₂ saved</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <div class="impact-number">
+                            <span class="counter" data-target="75">0</span>
+                            <span>% renewable energy</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <div class="impact-number">
+                            <span class="counter" data-target="100000">0</span>
+                            <span>trees equivalent</span>
+                        </div>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <i class="fas fa-battery-full"></i>
+                        </div>
+                        <div class="impact-number">
+                            <span class="counter" data-target="500000">0</span>
+                            <span>MWh clean energy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Users Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"ChargeNet EV has made my daily commute so much easier. The app is intuitive and the stations
+                            are always well-maintained."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Tesla Model 3 Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"The subscription plan saves me money every month. Fast charging stations are conveniently
+                            located throughout the city."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>Nissan Leaf Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"As a fleet manager, ChargeNet EV's business solution has been game-changing for our electric
+                            vehicle fleet."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily Rodriguez</h4>
+                                <p>Fleet Manager</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        <span>ChargeNet EV</span>
+                    </div>
+                    <p>Powering the future of sustainable transportation with reliable EV charging solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>EV Services</h4>
+                    <ul>
+                        <li><a href="services.html">Fast Charging</a></li>
+                        <li><a href="services.html">Home Installation</a></li>
+                        <li><a href="services.html">Fleet Solutions</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
+                        href="terms.html">Terms of Service</a> | <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

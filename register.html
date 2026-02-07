@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .auth-section {
+            height: 100vh;
+            min-height: 100vh;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 1rem !important;
+            /* Aggressively tighten padding */
+        }
+
+        .auth-brand {
+            display: flex;
+            flex-direction: row;
+            /* Side by side */
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            /* Tight space */
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            /* Reduced margin */
+            transition: var(--transition);
+        }
+
+        .auth-brand:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .auth-brand-name {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-top: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .auth-logo {
+            width: 40px !important;
+            /* Smaller logo for register page */
+            height: 40px !important;
+            font-size: var(--font-size-lg) !important;
+            margin: 0 !important;
+        }
+
+        .auth-header h1 {
+            font-size: var(--font-size-lg) !important;
+            margin-bottom: 0.1rem !important;
+        }
+
+        .auth-header p {
+            font-size: var(--font-size-xs) !important;
+            margin-bottom: 0.4rem !important;
+        }
+
+        /* Fix Icon Overlap */
+        .input-wrapper input {
+            padding-left: 2.8rem !important;
+            /* Force more horizontal space */
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+            font-size: 0.9rem !important;
+        }
+
+        .input-wrapper i {
+            left: 0.8rem !important;
+            font-size: 0.9rem !important;
+        }
+
+        /* Tighten Form Spacing for Viewport Fit */
+        .form-group {
+            margin-bottom: 0.4rem !important;
+        }
+
+        .form-group label {
+            margin-bottom: 0.1rem !important;
+            font-size: 0.8rem;
+        }
+
+        .input-wrapper input[type="password"] {
+            padding-right: 3rem !important;
+        }
+
+        .auth-divider {
+            margin: 0.4rem 0 !important;
+            font-size: 0.75rem !important;
+        }
+
+        .social-login {
+            margin-bottom: 0.4rem !important;
+            gap: 0.25rem !important;
+        }
+
+        .social-login .btn {
+            padding: 0.4rem !important;
+            font-size: 0.75rem !important;
+        }
+
+        .btn-large {
+            padding: 0.6rem 1.2rem !important;
+            font-size: 0.9rem !important;
+        }
+
+        .auth-footer {
+            padding-top: 0.4rem !important;
+            font-size: 0.8rem !important;
+        }
+
+        .password-strength {
+            margin-top: 0.1rem !important;
+        }
+
+        .strength-text {
+            font-size: 0.7rem !important;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <!-- Register Section -->
+        <section class="auth-section">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <a href="index.html" class="auth-brand">
+                            <div class="auth-logo">
+                                <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                            </div>
+                            <span class="auth-brand-name">ChargeNet EV</span>
+                        </a>
+                        <h1>Create Account</h1>
+                        <p>Join ChargeNet EV and start charging today</p>
+                    </div>
+
+                    <form class="auth-form" id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-user"></i>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope"></i>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-phone"></i>
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="password" name="password" placeholder="Create a password"
+                                    required>
+                                <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div class="strength-fill" id="passwordStrength"></div>
+                                </div>
+                                <span class="strength-text" id="strengthText">Password strength</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    placeholder="Confirm your password" required>
+                                <button type="button" class="toggle-password"
+                                    onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full btn-large">Create Account</button>
+
+                        <div class="auth-divider">
+                            <span>or register with</span>
+                        </div>
+
+                        <div class="social-login">
+                            <button type="button" class="btn btn-social btn-google" onclick="socialLogin('google')">
+                                <i class="fab fa-google"></i>
+                                Google
+                            </button>
+                            <button type="button" class="btn btn-social btn-apple" onclick="socialLogin('apple')">
+                                <i class="fab fa-apple"></i>
+                                Apple
+                            </button>
+                            <button type="button" class="btn btn-social btn-facebook" onclick="socialLogin('facebook')">
+                                <i class="fab fa-facebook"></i>
+                                Facebook
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Login here</a></p>
+                    </div>
+                </div>
+
+                <div class="auth-visual">
+                    <div class="visual-content">
+                        <h2>Start Your EV Journey</h2>
+                        <p>Create your account and access 500+ charging stations nationwide with exclusive member
+                            benefits.</p>
+                        <div class="benefit-list">
+                            <div class="benefit-item">
+                                <i class="fas fa-gift"></i>
+                                <span>$10 Free Charging Credit</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-percentage"></i>
+                                <span>Member-Only Discounts</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-star"></i>
+                                <span>Priority Booking Access</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Free Mobile App</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-image">
+                        <img src="assets/images/register-bg.jpg" alt="EV Charging">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Contact</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                    <span>ChargeNet EV</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+
+                        <li><a href="contact.html" class="active">Contact</a></li>
+                        <li class="mobile-only"><a href="login.html" class="nav-btn-style login-btn">Login</a></li>
+                        <li class="mobile-only"><a href="register.html" class="nav-btn-style signup-btn">Signup</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="dashboard.html" class="btn btn-sm btn-outline">Dashboard</a>
+                    <button id="theme-toggle" class="btn btn-outline btn-sm" aria-label="Toggle Dark Mode"
+                        style="padding: 0.5rem 0.75rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="page-title">Get in Touch</h1>
+                <p class="page-subtitle">We're here to help with all your EV charging needs</p>
+            </div>
+        </section>
+
+        <!-- Contact Section with Map -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-layout">
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <div class="contact-card">
+                            <div class="card-header">
+                                <div class="header-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="header-content">
+                                    <h2>Send us a Message</h2>
+                                    <p>We'll respond as soon as possible</p>
+                                </div>
+                            </div>
+                            <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-user"></i>
+                                        <input type="text" id="name" name="name" placeholder="Enter your full name"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-envelope"></i>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-phone"></i>
+                                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <div class="input-wrapper">
+                                        <i class="fas fa-tag"></i>
+                                        <select id="subject" name="subject" required>
+                                            <option value="">Select a topic</option>
+                                            <option value="general">General Inquiry</option>
+                                            <option value="support">Technical Support</option>
+                                            <option value="billing">Billing Question</option>
+                                            <option value="partnership">Partnership Opportunity</option>
+                                            <option value="feedback">Feedback</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <div class="input-wrapper">
+                                        <textarea id="message" name="message" rows="5"
+                                            placeholder="Tell us how we can help..." required></textarea>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-large">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Contact Info -->
+                        <div class="contact-info-card">
+                            <h3>Contact Information</h3>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Office Address</h4>
+                                    <p>123 EV Boulevard<br>
+                                        Tech District, San Francisco, CA 94105<br>
+                                        United States</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Phone Support</h4>
+                                    <p>Main: <a href="tel:+1-800-CHARGE">1-800-CHARGE</a><br>
+                                        Support: <a href="tel:+1-800-HELP-EV">1-800-HELP-EV</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Email Support</h4>
+                                    <p><a href="mailto:info@chargenetev.com">info@chargenetev.com</a><br>
+                                        <a href="mailto:support@chargenetev.com">support@chargenetev.com</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <div class="info-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="info-details">
+                                    <h4>Business Hours</h4>
+                                    <p>Mon-Fri: 8AM-8PM<br>
+                                        Sat-Sun: 9AM-6PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map Section -->
+                    <div class="map-wrapper">
+                        <div class="map-header">
+                            <h3>Find Us</h3>
+                            <div class="map-actions">
+                                <button class="btn btn-outline btn-small" onclick="openGoogleMaps()">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Open in Google Maps
+                                </button>
+                                <button class="btn btn-outline btn-small" onclick="copyAddress()">
+                                    <i class="fas fa-copy"></i>
+                                    Copy Address
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="map-container">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.0864738428!2d-122.4194155!3d37.7749295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085807c6c6b7b7%3a0x8085807c6c6b7b7a!2s123%20EV%20Boulevard%2C%20San%20Francisco%2C%20CA%2094105!5e0!3m2!1sen!2sus!4v16234567896513!5m2!1d0!2d0!7e1635740258969!2m1!1s0x8085807c6c6b7b7a%3a0x8085807c6c6b7b7b"
+                                width="100%" height="450" style="border:0; border-radius: 12px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+
+                        <div class="map-info-card">
+                            <div class="map-info-content">
+                                <h4>ChargeNet EV Headquarters</h4>
+                                <p>Visit our main office in San Francisco's Tech District. We're conveniently located
+                                    near major transportation hubs and easily accessible by public transit.</p>
+
+                                <div class="map-features">
+                                    <div class="feature">
+                                        <i class="fas fa-parking"></i>
+                                        <span>Free Parking Available</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-wifi"></i>
+                                        <span>Free WiFi</span>
+                                    </div>
+                                    <div class="feature">
+                                        <i class="fas fa-coffee"></i>
+                                        <span>Refreshments</span>
+                                    </div>
+                                    <div class="feature">
+                                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                                        <span>Test Charging Station</span>
+                                    </div>
+                                </div>
+
+                                <div class="map-directions">
+                                    <button class="btn btn-primary" onclick="openGoogleMaps()">
+                                        <i class="fas fa-directions"></i>
+                                        Get Directions
+                                    </button>
+                                    <button class="btn btn-outline" onclick="callUs()">
+                                        <i class="fas fa-phone"></i>
+                                        Call Us
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How do I start charging at a ChargeNet EV station?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Simply download our mobile app, create an account, add a payment method, and scan the QR
+                                code at any station. You can also use our website to find and book stations in advance.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What payment methods do you accept?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We accept all major credit cards (Visa, Mastercard, American Express, Discover), debit
+                                cards, and digital wallets like Apple Pay and Google Pay. You can also pre-load funds to
+                                your ChargeNet EV wallet.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>How much does it cost to charge?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Pricing varies by station type and location. Standard charging starts at $0.20/kWh, fast
+                                charging at $0.30/kWh, and ultra-fast DC charging at $0.40/kWh. Check individual station
+                                details for exact pricing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Can I reserve a charging slot in advance?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! Premium and Business plan members can reserve charging slots up to 24 hours in
+                                advance. Basic members can book same-day slots subject to availability.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>What if my charging session is interrupted?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>If your session is interrupted due to technical issues, you won't be charged for the
+                                incomplete session. Our 24/7 support team can help resolve any issues immediately.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <h3>Do you offer fleet charging solutions?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer comprehensive fleet charging solutions with dedicated account management,
+                                custom pricing, and advanced analytics. Contact our business team for a customized
+                                quote.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Channels -->
+        <section class="support-channels">
+            <div class="container">
+                <h2 class="section-title">Multiple Support Channels</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Live Chat</h3>
+                        <p>Get instant help from our support team</p>
+                        <button class="btn btn-primary" onclick="startLiveChat()">Start Chat</button>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone Support</h3>
+                        <p>Speak directly with our support specialists</p>
+                        <a href="tel:+1-800-HELP-EV" class="btn btn-primary">Call Now</a>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p>Send detailed inquiries and get responses</p>
+                        <a href="mailto:support@chargenetev.com" class="btn btn-primary">Email Us</a>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Help Center</h3>
+                        <p>Browse our comprehensive knowledge base</p>
+                        <button class="btn btn-primary" onclick="openHelpCenter()">Visit Help Center</button>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <h3>Social Media</h3>
+                        <p>Connect with us on social platforms</p>
+                        <button class="btn btn-primary" onclick="openSocialMedia()">Follow Us</button>
+                    </div>
+
+                    <div class="support-card">
+                        <div class="support-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Community Forum</h3>
+                        <p>Join discussions with other EV drivers</p>
+                        <button class="btn btn-primary" onclick="openForum()">Join Forum</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Contact -->
+        <section class="emergency-contact">
+            <div class="container">
+                <div class="emergency-content">
+                    <div class="emergency-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h2>Emergency Support</h2>
+                    <p>For urgent issues at charging stations (power outages, equipment damage, safety concerns):</p>
+                    <div class="emergency-info">
+                        <a href="tel:+1-800-EMERGENCY" class="emergency-number">1-800-EMERGENCY</a>
+                        <span class="emergency-hours">Available 24/7</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        <span>ChargeNet EV</span>
+                    </div>
+                    <p>Powering the future of sustainable transportation with reliable EV charging solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>EV Services</h4>
+                    <ul>
+                        <li><a href="services.html">Fast Charging</a></li>
+                        <li><a href="services.html">Home Installation</a></li>
+                        <li><a href="services.html">Fleet Solutions</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
+                        href="terms.html">Terms</a> | <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

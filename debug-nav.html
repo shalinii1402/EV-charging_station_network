@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Navigation Debug</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: white;
+            border: 2px solid #333;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 10000;
+            max-width: 300px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .debug-log {
+            background: #f8f8f8;
+            padding: 10px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .test-buttons {
+            margin-top: 10px;
+        }
+        .test-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin: 2px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .test-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-panel">
+        <h3>Dashboard Navigation Debug</h3>
+        <div class="test-buttons">
+            <button class="test-btn" onclick="testNavigation('dashboard')">Test Dashboard</button>
+            <button class="test-btn" onclick="testNavigation('find-stations')">Test Find Stations</button>
+            <button class="test-btn" onclick="testNavigation('bookings')">Test Bookings</button>
+            <button class="test-btn" onclick="testNavigation('wallet')">Test Wallet</button>
+            <button class="test-btn" onclick="testNavigation('history')">Test History</button>
+            <button class="test-btn" onclick="testNavigation('profile')">Test Profile</button>
+        </div>
+        <div class="debug-log" id="debugLog">Initializing debug...</div>
+    </div>
+    
+    <iframe src="dashboard.html" style="width: 100%; height: 100vh; border: none;"></iframe>
+    
+    <script>
+        let debugLog = document.getElementById('debugLog');
+        
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.innerHTML += `[${timestamp}] ${message}<br>`;
+            debugLog.scrollTop = debugLog.scrollHeight;
+        }
+        
+        function testNavigation(section) {
+            log(`Testing navigation to: ${section}`);
+            
+            // Get the iframe document
+            const iframe = document.querySelector('iframe');
+            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            
+            if (iframeDoc) {
+                // Check if section exists
+                const targetSection = iframeDoc.getElementById(section);
+                if (targetSection) {
+                    log(`✓ Section found: ${section}`);
+                    
+                    // Check if it's currently active
+                    const isActive = targetSection.classList.contains('active');
+                    log(`  Current active state: ${isActive}`);
+                    
+                    // Try to activate it
+                    const sections = iframeDoc.querySelectorAll('.dashboard-section');
+                    log(`  Found ${sections.length} dashboard sections`);
+                    
+                    // Hide all sections
+                    sections.forEach(s => {
+                        s.classList.remove('active');
+                        log(`  Hidden section: ${s.id}`);
+                    });
+                    
+                    // Show target section
+                    targetSection.classList.add('active');
+                    log(`  ✓ Activated section: ${section}`);
+                    
+                    // Update sidebar
+                    const sidebarLinks = iframeDoc.querySelectorAll('.sidebar-link');
+                    sidebarLinks.forEach(link => {
+                        link.classList.remove('active');
+                        const linkSection = link.dataset.section || link.getAttribute('href').substring(1);
+                        if (linkSection === section) {
+                            link.classList.add('active');
+                            log(`  ✓ Activated sidebar link: ${section}`);
+                        }
+                    });
+                    
+                } else {
+                    log(`✗ Section NOT found: ${section}`);
+                    
+                    // List all available sections
+                    const allSections = iframeDoc.querySelectorAll('.dashboard-section');
+                    log(`  Available sections:`);
+                    allSections.forEach(s => log(`    - ${s.id}`));
+                }
+            } else {
+                log(`✗ Cannot access iframe document`);
+            }
+        }
+        
+        // Initialize
+        log('Debug panel loaded');
+        log('Click test buttons to verify navigation');
+    </script>
+</body>
+</html>

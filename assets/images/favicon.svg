@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <!-- Main Charging Station Body -->
+    <rect x="100" y="50" width="220" height="412" rx="40" fill="#0066cc" />
+    
+    <!-- Lightning Bolt Icon -->
+    <path d="M210 160 l-50 110 h50 l-20 100 l90 -130 h-60 l40 -80 z" fill="white" />
+    
+    <!-- Charging Cable and Plug -->
+    <path d="M320 350 c60 0 100 -30 100 -100 v-80" fill="none" stroke="#0066cc" stroke-width="35" stroke-linecap="round" />
+    
+    <!-- Plug Head -->
+    <rect x="375" y="110" width="90" height="60" rx="15" fill="#0066cc" />
+    
+    <!-- Plug Prongs -->
+    <rect x="395" y="80" width="12" height="30" rx="4" fill="#0066cc" />
+    <rect x="438" y="80" width="12" height="30" rx="4" fill="#0066cc" />
+</svg>

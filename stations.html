@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChargeNet EV - Stations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                    <span>ChargeNet EV</span>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="home2.html">Home 2</a></li>
+                        <li><a href="stations.html" class="active">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li class="mobile-only"><a href="login.html" class="nav-btn-style login-btn">Login</a></li>
+                        <li class="mobile-only"><a href="register.html" class="nav-btn-style signup-btn">Signup</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="dashboard.html" class="btn btn-sm btn-outline">Dashboard</a>
+                    <button id="theme-toggle" class="btn btn-outline btn-sm" aria-label="Toggle Dark Mode"
+                        style="padding: 0.5rem 0.75rem;">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="login.html" class="btn btn-outline">Login</a>
+                    <a href="register.html" class="btn btn-primary">Register</a>
+                </div>
+                <button id="mobile-theme-toggle" class="mobile-theme-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Search & Filter Section -->
+        <section class="search-filter">
+            <div class="container">
+                <h1 class="page-title">Find Charging Stations</h1>
+                <div class="search-controls">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Enter city, zip code, or address..." id="locationSearch">
+                        <button class="btn btn-primary" onclick="searchStations()">Search</button>
+                    </div>
+                    <div class="filter-options">
+                        <select id="chargerType" class="filter-select">
+                            <option value="all">All Charger Types</option>
+                            <option value="fast">Fast Charging</option>
+                            <option value="ultra">Ultra-Fast DC</option>
+                            <option value="standard">Standard</option>
+                        </select>
+                        <select id="availability" class="filter-select">
+                            <option value="all">All Availability</option>
+                            <option value="available">Available Now</option>
+                            <option value="busy">Busy</option>
+                        </select>
+                        <select id="sortBy" class="filter-select">
+                            <option value="distance">Sort by Distance</option>
+                            <option value="price">Sort by Price</option>
+                            <option value="rating">Sort by Rating</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Station Cards Section -->
+        <section class="stations-list">
+            <div class="container">
+                <div class="stations-grid">
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-1.jpg" alt="Downtown Plaza Station">
+                            <div class="station-badge available">4 Available</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>Downtown Plaza Station</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>123 Main Street, Downtown - 0.5 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Fast, Ultra-Fast DC</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.25/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">24/7</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-wifi"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">WiFi, Restrooms</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary" onclick="bookStation('downtown-plaza')">Book
+                                    Slot</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('downtown-plaza')">View
+                                    Details</button>
+                                <button class="btn btn-secondary"
+                                    onclick="getDirections('downtown-plaza')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-2.jpg" alt="Shopping Mall Hub">
+                            <div class="station-badge available">2 Available</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>Shopping Mall Hub</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>456 Commerce Ave, Mall District - 1.2 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Fast, Standard</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.30/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">6AM - 11PM</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-coffee"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">Cafe, Shops</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary" onclick="bookStation('shopping-mall')">Book
+                                    Slot</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('shopping-mall')">View
+                                    Details</button>
+                                <button class="btn btn-secondary"
+                                    onclick="getDirections('shopping-mall')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-3.jpg" alt="Airport Express Station">
+                            <div class="station-badge busy">1 Available</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>Airport Express Station</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>789 Airport Road, Terminal 2 - 2.8 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Ultra-Fast DC, Fast</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.35/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">24/7</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-luggage-cart"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">Luggage, Lounge</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary" onclick="bookStation('airport')">Book Slot</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('airport')">View
+                                    Details</button>
+                                <button class="btn btn-secondary" onclick="getDirections('airport')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-4.jpg" alt="University Campus Station">
+                            <div class="station-badge available">3 Available</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>University Campus Station</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>321 Education Blvd, Campus West - 3.5 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Fast, Standard</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.20/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">24/7</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-book"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">Library, Cafe</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary" onclick="bookStation('university')">Book Slot</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('university')">View
+                                    Details</button>
+                                <button class="btn btn-secondary"
+                                    onclick="getDirections('university')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-5.jpg" alt="Highway Service Station">
+                            <div class="station-badge offline">Offline</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>Highway Service Station</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.5</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Interstate 95, Mile 42 - 8.2 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Ultra-Fast DC, Fast</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.40/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">24/7</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-utensils"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">Restaurant, Store</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary disabled" disabled>Currently Offline</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('highway')">View
+                                    Details</button>
+                                <button class="btn btn-secondary" onclick="getDirections('highway')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="station-card detailed">
+                        <div class="station-image">
+                            <img src="assets/images/station-6.jpg" alt="Residential Complex Station">
+                            <div class="station-badge available">5 Available</div>
+                        </div>
+                        <div class="station-details">
+                            <div class="station-header">
+                                <h3>Residential Complex Station</h3>
+                                <div class="station-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.4</span>
+                                </div>
+                            </div>
+                            <div class="station-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>555 Park Avenue, Green Valley - 4.1 miles away</span>
+                            </div>
+                            <div class="station-info-list">
+                                <li>
+                                    <i class="fas fa-bolt"></i>
+                                    <span class="info-label">Chargers:</span>
+                                    <span class="info-value">Standard, Fast</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-dollar-sign"></i>
+                                    <span class="info-label">Price:</span>
+                                    <span class="info-value">$0.22/kWh</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock"></i>
+                                    <span class="info-label">Hours:</span>
+                                    <span class="info-value">6AM - 10PM</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-swimming-pool"></i>
+                                    <span class="info-label">Amenities:</span>
+                                    <span class="info-value">Pool, Gym</span>
+                                </li>
+                            </div>
+                            <div class="station-actions">
+                                <button class="btn btn-primary" onclick="bookStation('residential')">Book Slot</button>
+                                <button class="btn btn-outline" onclick="viewStationDetails('residential')">View
+                                    Details</button>
+                                <button class="btn btn-secondary"
+                                    onclick="getDirections('residential')">Directions</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn btn-outline" disabled>Previous</button>
+                    <span class="page-info">Page 1 of 3</span>
+                    <button class="btn btn-outline">Next</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Availability Indicator -->
+        <section class="live-availability">
+            <div class="container">
+                <h2 class="section-title">Live Station Availability</h2>
+                <div class="availability-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon available">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">Available Now</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon busy">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">In Use</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon offline">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Offline</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon total">
+                            <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">Total Stations</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Per Station -->
+        <section class="station-pricing">
+            <div class="container">
+                <h2 class="section-title">Pricing Information</h2>
+                <div class="pricing-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Station Type</th>
+                                <th>Price per kWh</th>
+                                <th>Connection Fee</th>
+                                <th>Idle Fee</th>
+                                <th>Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Standard Charging</td>
+                                <td>$0.20 - $0.25</td>
+                                <td>$1.00</td>
+                                <td>$0.05/min after 30min</td>
+                                <td>Overnight charging</td>
+                            </tr>
+                            <tr>
+                                <td>Fast Charging</td>
+                                <td>$0.25 - $0.35</td>
+                                <td>$2.00</td>
+                                <td>$0.10/min after 45min</td>
+                                <td>Quick top-ups</td>
+                            </tr>
+                            <tr>
+                                <td>Ultra-Fast DC</td>
+                                <td>$0.35 - $0.45</td>
+                                <td>$3.00</td>
+                                <td>$0.15/min after 30min</td>
+                                <td>Rapid charging</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Amenities & Charger Types -->
+        <section class="amenities-guide">
+            <div class="container">
+                <h2 class="section-title">Station Amenities & Charger Types</h2>
+                <div class="amenities-grid">
+                    <div class="amenity-card">
+                        <div class="amenity-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Charger Types</h3>
+                        <ul>
+                            <li><strong>Type 1 (J1772):</strong> Standard AC charging</li>
+                            <li><strong>Type 2 (Mennekes):</strong> European standard</li>
+                            <li><strong>CHAdeMO:</strong> DC fast charging</li>
+                            <li><strong>CCS:</strong> Combined Charging System</li>
+                            <li><strong>Tesla Supercharger:</strong> Tesla vehicles</li>
+                        </ul>
+                    </div>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <h3>Common Amenities</h3>
+                        <ul>
+                            <li>Restrooms</li>
+                            <li>WiFi Access</li>
+                            <li>Food & Beverages</li>
+                            <li>Shopping</li>
+                            <li>Lounges</li>
+                        </ul>
+                    </div>
+                    <div class="amenity-card">
+                        <div class="amenity-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Safety Features</h3>
+                        <ul>
+                            <li>24/7 CCTV Monitoring</li>
+                            <li>Well-lit Areas</li>
+                            <li>Emergency Assistance</li>
+                            <li>Secure Parking</li>
+                            <li>Weather Protection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Book Charging Slot CTA -->
+        <section class="booking-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Book Your Charging Slot?</h2>
+                    <p>Reserve your spot in advance and skip the wait. Choose from hundreds of stations across the city.
+                    </p>
+                    <button class="btn btn-primary btn-large" onclick="showBookingModal()">Book Charging Slot
+                        Now</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                        <span>ChargeNet EV</span>
+                    </div>
+                    <p>Powering the future of sustainable transportation with reliable EV charging solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="stations.html">Stations</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>EV Services</h4>
+                    <ul>
+                        <li><a href="services.html">Fast Charging</a></li>
+                        <li><a href="services.html">Home Installation</a></li>
+                        <li><a href="services.html">Fleet Solutions</a></li>
+                        <li><a href="services.html">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
+                        href="terms.html">Terms of Service</a> | <a href="#">Cookies</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
