@@ -3268,52 +3268,36 @@ animationStyle.textContent = `
         border-color: var(--danger-color) !important;
     }
 
-    .dark-mode {
+    [data-theme='dark'] {
         background-color: var(--dark-color);
-        color: white;
+        color: var(--text-color);
     }
 
-    .dark-mode .header {
-        background: #2a2a2a;
+    [data-theme='dark'] .modal-content {
+        background-color: var(--card-bg);
+        color: var(--text-color);
     }
 
-    .dark-mode .station-card,
-    .dark-mode .feature-card,
-    .dark-mode .dashboard-card {
-        background: #2a2a2a;
-        color: white;
+    [data-theme='dark'] .station-summary {
+        background: var(--section-bg-alt);
+        border-color: var(--border-color);
     }
 
-    .dark-mode .auth-card {
-        background: #2a2a2a;
-        color: white;
+    [data-theme='dark'] .form-group input,
+    [data-theme='dark'] .form-group select,
+    [data-theme='dark'] .form-group textarea {
+        background: var(--section-bg-alt);
+        border-color: var(--border-color);
+        color: var(--text-color);
     }
 
-    .dark-mode .modal-content {
-        background: #2a2a2a;
-        color: white;
+    [data-theme='dark'] .booking-details {
+        background: var(--section-bg-alt);
+        border-color: var(--border-color);
     }
 
-    .dark-mode .station-summary {
-        background: #333;
-        border-color: #444;
-    }
-
-    .dark-mode .form-group input,
-    .dark-mode .form-group select,
-    .dark-mode .form-group textarea {
-        background: #333;
-        border-color: #444;
-        color: white;
-    }
-
-    .dark-mode .booking-details {
-        background: #333;
-        border-color: #444;
-    }
-
-    .dark-mode .detail-row {
-        border-color: #444;
+    [data-theme='dark'] .detail-row {
+        border-color: var(--border-color);
     }
 `;
 document.head.appendChild(animationStyle);
@@ -3367,7 +3351,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', handleThemeToggle);
     }
-    
+
     if (mobileThemeToggleBtn) {
         mobileThemeToggleBtn.addEventListener('click', handleThemeToggle);
     }
