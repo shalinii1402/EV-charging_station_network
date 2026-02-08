@@ -2234,6 +2234,12 @@ section {
     line-height: 1.6;
 }
 
+.partner-info .btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .partner-benefits {
     display: flex;
     flex-direction: column;
@@ -9299,9 +9305,19 @@ input:checked+.slider:before {
     }
 
     .logo-grid {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 500px;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 300px;
         margin: 0 auto;
+        width: 100%;
+    }
+
+    .partner-logo {
+        padding: var(--spacing-md);
+        font-size: 0.9rem;
+    }
+
+    .partner-logo i {
+        font-size: 1.5rem;
     }
 
     /* Button Fixes */
@@ -9413,14 +9429,6 @@ input:checked+.slider:before {
     }
 
     .hero-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .history-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .impact-stats {
         grid-template-columns: 1fr;
     }
 
