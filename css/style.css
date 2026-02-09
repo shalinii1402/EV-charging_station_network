@@ -3291,10 +3291,11 @@ section {
 
 .plans-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 .plan-card {
@@ -3395,10 +3396,23 @@ section {
 
 .impact-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .impact-stats {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-stats {
+        grid-template-columns: 1fr;
+    }
 }
 
 .impact-card {
@@ -3451,10 +3465,11 @@ section {
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--spacing-xl);
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 var(--spacing-md);
 }
 
 .testimonial-card {
@@ -10950,4 +10965,23 @@ input:checked+.slider:before {
 /* Fix input icon interaction */
 .input-wrapper i {
     pointer-events: none;
+}
+
+/* Extra small viewport overflow prevention */
+@media (max-width: 500px) {
+
+    .impact-stats,
+    .plans-grid,
+    .testimonials-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 var(--spacing-md);
+    }
+
+    .impact-card,
+    .plan-card,
+    .testimonial-card {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
 }
