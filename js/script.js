@@ -2220,13 +2220,21 @@ function bookStation(stationId) {
 }
 
 function viewStationDetails(stationId) {
-    // In a real app, this would navigate to station details page
-    showNotification('Loading station details...', 'info');
+    // Redirect to contact page to inquire for more specific details
+    showNotification('Redirecting to inquiry form...', 'info');
+    setTimeout(() => {
+        window.location.href = 'contact.html?inquiry=' + stationId;
+    }, 1000);
 }
 
 function getDirections(stationId) {
-    // In a real app, this would open maps app
-    showNotification('Opening directions in maps...', 'info');
+    const station = stationData[stationId];
+    if (station) {
+        const query = encodeURIComponent(`${station.name} ${station.address}`);
+        window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+    } else {
+        showNotification('Location details not found', 'error');
+    }
 }
 
 // ===== MODAL FUNCTIONS =====
@@ -2695,24 +2703,39 @@ function closeModal(modalId) {
 
 // ===== WALLET FUNCTIONS =====
 function selectPricing(type) {
-    showNotification(`Selected ${type} charging plan`, 'info');
+    showNotification(`Proceeding to sign up for ${type} plan...`, 'success');
+    setTimeout(() => {
+        window.location.href = 'register.html?plan=' + type;
+    }, 1000);
 }
 
 function selectPlan(plan) {
-    showNotification(`Selected ${plan} subscription plan`, 'info');
+    showNotification(`Proceeding to subscribe to ${plan}...`, 'success');
+    setTimeout(() => {
+        window.location.href = 'register.html?sub=' + plan;
+    }, 1000);
 }
 
 function selectFleetPlan(plan) {
-    showNotification(`Selected ${plan} fleet plan`, 'info');
+    showNotification(`Requesting fleet partnership for ${plan}...`, 'success');
+    setTimeout(() => {
+        window.location.href = 'contact.html?fleet=' + plan;
+    }, 1000);
 }
 
 // ===== SERVICE FUNCTIONS =====
 function requestService(serviceType) {
-    showNotification(`Requesting ${serviceType} service...`, 'info');
+    showNotification(`Redirecting to ${serviceType} request form...`, 'info');
+    setTimeout(() => {
+        window.location.href = 'contact.html?service=' + serviceType;
+    }, 1000);
 }
 
 function showConsultationModal() {
     showNotification('Opening consultation form...', 'info');
+    setTimeout(() => {
+        window.location.href = 'contact.html?type=consultation';
+    }, 1000);
 }
 
 // ===== NOTIFICATION SYSTEM =====
@@ -2742,10 +2765,11 @@ function showNotification(message, type = 'info') {
         top: 20px;
         right: 20px;
         background: white;
+        color: #1e293b;
         padding: 1rem 1.5rem;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        z-index: 10000;
+        z-index: 100000;
         min-width: 300px;
         animation: slideInRight 0.3s ease;
     `;
@@ -2872,11 +2896,17 @@ function showForgotPassword() {
 }
 
 function socialLogin(provider) {
-    showNotification(`Connecting with ${provider}...`, 'info');
+    showNotification(`Logging in with ${provider}...`, 'success');
+    setTimeout(() => {
+        window.location.href = 'dashboard.html';
+    }, 1500);
 }
 
 function startLiveChat() {
-    showNotification('Starting live chat...', 'info');
+    showNotification('Opening support channels...', 'info');
+    setTimeout(() => {
+        window.location.href = 'contact.html';
+    }, 1000);
 }
 
 function openHelpCenter() {

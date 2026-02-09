@@ -93,7 +93,7 @@
         </section>
 
         <!-- Station Cards Section -->
-        <section class="stations-list">
+        <section class="stations-list" id="stations-list">
             <div class="container">
                 <div class="stations-grid">
                     <div class="station-card detailed">
@@ -397,59 +397,9 @@
                     </div>
                 </div>
 
-                <!-- Pagination -->
-                <div class="pagination">
-                    <button class="btn btn-outline" disabled>Previous</button>
-                    <span class="page-info">Page 1 of 3</span>
-                    <button class="btn btn-outline">Next</button>
-                </div>
             </div>
         </section>
 
-        <!-- Live Availability Indicator -->
-        <section class="live-availability">
-            <div class="container">
-                <h2 class="section-title">Live Station Availability</h2>
-                <div class="availability-stats">
-                    <div class="stat-card">
-                        <div class="stat-icon available">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">15</span>
-                            <span class="stat-label">Available Now</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon busy">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">8</span>
-                            <span class="stat-label">In Use</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon offline">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">Offline</span>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon total">
-                            <img src="assets/images/logo.svg" alt="ChargeNet EV Logo" loading="lazy">
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">25</span>
-                            <span class="stat-label">Total Stations</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Pricing Per Station -->
         <section class="station-pricing">
@@ -503,8 +453,7 @@
                     <h2>Ready to Book Your Charging Slot?</h2>
                     <p>Reserve your spot in advance and skip the wait. Choose from hundreds of stations across the city.
                     </p>
-                    <button class="btn btn-primary btn-large" onclick="showBookingModal()">Book Charging Slot
-                        Now</button>
+                    <a href="#stations-list" class="btn btn-primary btn-large">Book Charging Slot Now</a>
                 </div>
             </div>
         </section>
@@ -549,7 +498,7 @@
                     <h4>Support</h4>
                     <ul>
                         <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Help Center</a></li>
+                        <li><a href="contact.html">Help Center</a></li>
                         <li><a href="privacy.html">Privacy Policy</a></li>
                         <li><a href="terms.html">Terms of Service</a></li>
                     </ul>
@@ -557,7 +506,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 ChargeNet EV. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a
-                        href="terms.html">Terms of Service</a> | <a href="#">Cookies</a></p>
+                        href="terms.html">Terms of Service</a> | <a href="contact.html">Cookies</a></p>
             </div>
         </div>
     </footer>
