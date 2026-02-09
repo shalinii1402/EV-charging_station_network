@@ -1569,12 +1569,29 @@ function setupEventListeners() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+            const href = this.getAttribute('href');
+
+            // Handle back to top
+            if (href === '#' || href === '#top') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
+                return;
+            }
+
+            if (href.length > 1) {
+                try {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                } catch (err) {
+                    console.error('Invalid selector:', href);
+                }
             }
         });
     });
@@ -2034,19 +2051,17 @@ function initializeDashboardHamburger() {
 }
 
 function logout() {
-    // Show confirmation
-    if (confirm('Are you sure you want to logout?')) {
-        // Clear user session (in real app, this would clear cookies/localStorage)
-        console.log('Logging out...');
+    // Clear all authentication data
+    localStorage.clear();
+    sessionStorage.clear();
 
-        // Show logout message
-        showNotification('Logging out...', 'info');
+    // Show logout message
+    showNotification('Logged out successfully', 'success');
 
-        // Redirect to home page after delay
-        setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 1500);
-    }
+    // Redirect to home page
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 1000);
 }
 
 function showBookingTab(tab) {

@@ -1509,6 +1509,7 @@ section {
     height: 120px;
     border-radius: var(--border-radius);
     overflow: hidden;
+    background-color: var(--section-bg-alt);
 }
 
 .station-image img {
@@ -1639,22 +1640,57 @@ section {
     .station-image {
         width: 100%;
         height: 200px;
-        align-self: center;
+        align-self: stretch;
+        /* Ensure it fills the width */
+        margin-bottom: var(--spacing-xs);
+        background-color: var(--section-bg-alt);
+        /* Placeholder color */
     }
 
     .station-header {
         flex-direction: column;
         align-items: flex-start;
         gap: var(--spacing-xs);
+        width: 100%;
+        /* Ensure container takes full width */
+    }
+
+    .station-header h3 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: block;
+    }
+
+    .station-location {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        display: block;
     }
 
     .station-info-list li {
         font-size: var(--font-size-xs);
+        display: flex;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
     }
 
     .station-info-list li .info-label {
-        min-width: 70px;
+        min-width: 85px;
+        /* Slightly more space for label */
         font-size: var(--font-size-xs);
+        flex-shrink: 0;
+    }
+
+    .station-info-list li .info-value {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
     }
 }
 
@@ -4428,6 +4464,19 @@ section {
 }
 
 /* ===== CONTACT MAIN ===== */
+.contact-hero {
+    text-align: center;
+    padding: var(--spacing-3xl) 0;
+    background: var(--light-color);
+}
+
+.contact-hero .page-subtitle {
+    color: var(--text-light);
+    font-size: var(--font-size-lg);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .contact-main {
     background: var(--light-color);
     padding: var(--spacing-3xl) 0;
@@ -4439,6 +4488,14 @@ section {
     gap: var(--spacing-3xl);
     max-width: 1200px;
     margin: 0 auto;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+    }
 }
 
 .contact-form-section {
@@ -4506,6 +4563,31 @@ section {
 .contact-details a {
     color: var(--text-light);
     margin-bottom: var(--spacing-xs);
+}
+
+/* Contact Info Social Links */
+.contact-info-card .social-links {
+    margin-top: var(--spacing-lg);
+}
+
+.contact-info-card .social-links a {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.contact-info-card .social-links a:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 .map-section {
@@ -5453,20 +5535,21 @@ section {
     background: var(--dark-color);
     /* Matte Black */
     color: var(--text-color);
-    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    padding: var(--spacing-xl) 0 var(--spacing-lg);
     border-top: 1px solid var(--border-color);
+    position: relative;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-2xl);
-    margin-bottom: var(--spacing-2xl);
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
 }
 
 .footer-section h4 {
     color: #ffffff;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     font-size: var(--font-size-lg);
     position: relative;
     padding-bottom: var(--spacing-xs);
@@ -5489,15 +5572,23 @@ section {
     gap: var(--spacing-sm);
     font-size: var(--font-size-xl);
     font-weight: 700;
-    color: var(--accent-color);
-    /* Copper Logo */
-    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-logo img {
+    height: 32px;
+    width: auto;
+}
+
+.footer-logo i {
+    font-size: var(--font-size-2xl);
 }
 
 .footer-section p {
     color: #cbd5e1;
     font-size: var(--font-size-sm);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
     line-height: 1.6;
 }
 
@@ -5507,13 +5598,14 @@ section {
 }
 
 .footer-section ul li {
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
 }
 
 .footer-section ul li a {
     color: #cbd5e1;
     transition: var(--transition);
     font-size: var(--font-size-sm);
+    text-decoration: none;
 }
 
 .footer-section ul li a:hover {
@@ -5524,7 +5616,7 @@ section {
 .social-links {
     display: flex;
     gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+    margin-top: var(--spacing-md);
 }
 
 .social-links a {
@@ -5549,16 +5641,59 @@ section {
 
 .footer-bottom {
     text-align: center;
-    padding-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: #9ca3af;
     font-size: var(--font-size-xs);
     opacity: 0.8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer-bottom a {
     color: var(--accent-color);
     text-decoration: none;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    z-index: 10;
+}
+
+.back-to-top:hover {
+    background: var(--secondary-color);
+    transform: translateY(-3px);
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding-bottom: var(--spacing-xl);
+    }
+
+    .back-to-top {
+        position: static;
+        margin-top: var(--spacing-md);
+    }
 }
 
 /* ===== AUTH SECTIONS ===== */
@@ -5639,8 +5774,12 @@ section {
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-light);
-    z-index: 1;
+    z-index: 2;
+    /* Ensure icon is above input background but below text cursor */
     font-size: var(--font-size-base);
+    width: 20px;
+    /* Fixed width for alignment */
+    text-align: center;
 }
 
 .input-wrapper input,
@@ -5648,6 +5787,7 @@ section {
     width: 100%;
     display: block;
     padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 3rem;
+    /* Sufficient padding for icon */
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: var(--font-size-base);
@@ -5657,6 +5797,7 @@ section {
 .input-wrapper textarea {
     width: 100%;
     padding: var(--spacing-md);
+    /* Textarea usually doesn't have an icon inside in this design, or needs different handling */
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: var(--font-size-base);
@@ -10751,4 +10892,42 @@ input:checked+.slider:before {
     .nav-menu a:hover {
         color: var(--primary-color) !important;
     }
+}
+
+/* ===== PRICING MOBILE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    .pricing-cta .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: var(--spacing-sm);
+    }
+
+    .pricing-cta .cta-buttons .btn,
+    .pricing-cta .cta-buttons .btn-large {
+        width: 100%;
+        max-width: 300px;
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        /* Ensure normal size */
+        min-height: 48px;
+        /* Consistent touch target */
+        margin: 0;
+    }
+}
+
+/* ===== CONTACT MAP SPACING ===== */
+.contact-main .map-section {
+    margin-top: var(--spacing-3xl);
+    width: 100%;
+}
+
+.map-container {
+    height: 400px;
+    /* Force consistent height */
+}
+
+/* Fix input icon interaction */
+.input-wrapper i {
+    pointer-events: none;
 }
