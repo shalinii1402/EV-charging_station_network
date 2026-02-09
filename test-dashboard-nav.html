@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +11,14 @@
             font-family: Arial, sans-serif;
             background: #f0f0f0;
         }
+
         .test-header {
             background: #333;
             color: white;
             padding: 10px;
             text-align: center;
         }
+
         .test-controls {
             background: white;
             padding: 15px;
@@ -25,6 +28,7 @@
             flex-wrap: wrap;
             align-items: center;
         }
+
         .test-btn {
             background: #007bff;
             color: white;
@@ -34,30 +38,37 @@
             cursor: pointer;
             font-size: 14px;
         }
+
         .test-btn:hover {
             background: #0056b3;
         }
+
         .test-btn.active {
             background: #28a745;
         }
+
         .status {
             padding: 5px 10px;
             border-radius: 4px;
             font-size: 12px;
             font-weight: bold;
         }
+
         .status.success {
             background: #d4edda;
             color: #155724;
         }
+
         .status.error {
             background: #f8d7da;
             color: #721c24;
         }
+
         .status.info {
             background: #d1ecf1;
             color: #0c5460;
         }
+
         iframe {
             width: 100%;
             height: calc(100vh - 120px);
@@ -65,12 +76,13 @@
         }
     </style>
 </head>
+
 <body>
     <div class="test-header">
         <h1>Dashboard Navigation Test</h1>
         <p>Test the sidebar navigation functionality</p>
     </div>
-    
+
     <div class="test-controls">
         <button class="test-btn" onclick="testSection('dashboard')">Dashboard</button>
         <button class="test-btn" onclick="testSection('find-stations')">Find Stations</button>
@@ -79,32 +91,32 @@
         <button class="test-btn" onclick="testSection('history')">Charging History</button>
         <button class="test-btn" onclick="testSection('profile')">Profile & Settings</button>
         <button class="test-btn" onclick="testLogout()">Logout</button>
-        
+
         <div id="status" class="status info">Ready to test</div>
     </div>
-    
+
     <iframe src="dashboard.html" id="dashboardFrame"></iframe>
-    
+
     <script>
         let currentSection = 'dashboard';
         const statusEl = document.getElementById('status');
-        
+
         function updateStatus(message, type = 'info') {
             statusEl.textContent = message;
             statusEl.className = `status ${type}`;
         }
-        
+
         function testSection(section) {
             updateStatus(`Testing ${section}...`, 'info');
-            
+
             const iframe = document.getElementById('dashboardFrame');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-            
+
             if (!iframeDoc) {
                 updateStatus('Cannot access iframe content', 'error');
                 return;
             }
-            
+
             try {
                 // Check if section exists
                 const targetSection = iframeDoc.getElementById(section);
@@ -112,14 +124,14 @@
                     updateStatus(`Section '${section}' not found`, 'error');
                     return;
                 }
-                
+
                 // Hide all sections
                 const allSections = iframeDoc.querySelectorAll('.dashboard-section');
                 allSections.forEach(s => s.classList.remove('active'));
-                
+
                 // Show target section
                 targetSection.classList.add('active');
-                
+
                 // Update sidebar active state
                 const sidebarLinks = iframeDoc.querySelectorAll('.sidebar-link');
                 sidebarLinks.forEach(link => {
@@ -129,52 +141,52 @@
                         link.classList.add('active');
                     }
                 });
-                
+
                 // Update button states
                 document.querySelectorAll('.test-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
                 event.target.classList.add('active');
-                
+
                 currentSection = section;
                 updateStatus(`✓ Successfully loaded ${section}`, 'success');
-                
+
                 // Log success
                 console.log(`✓ Navigation to ${section} successful`);
-                
+
             } catch (error) {
                 updateStatus(`Error: ${error.message}`, 'error');
                 console.error('Navigation error:', error);
             }
         }
-        
+
         function testLogout() {
             updateStatus('Testing logout...', 'info');
-            
+
             const iframe = document.getElementById('dashboardFrame');
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-            
+
             if (iframeDoc) {
                 // Simulate logout
                 updateStatus('✓ Logout functionality triggered', 'success');
                 console.log('Logout test successful');
-                
+
                 // In real app, this would redirect to login page
                 setTimeout(() => {
-                    if (confirm('Logout test successful. Would you like to go to the login page?')) {
-                        window.location.href = 'login.html';
+                    if (confirm('Logout test successful. Would you like to go to the Home 1 page?')) {
+                        window.location.href = 'index.html';
                     }
                 }, 1000);
             }
         }
-        
+
         // Auto-test on load
         window.addEventListener('load', () => {
             setTimeout(() => {
                 updateStatus('Test page loaded. Click buttons to test navigation.', 'info');
             }, 1000);
         });
-        
+
         // Monitor iframe load
         const iframe = document.getElementById('dashboardFrame');
         iframe.addEventListener('load', () => {
@@ -182,4 +194,5 @@
         });
     </script>
 </body>
+
 </html>
