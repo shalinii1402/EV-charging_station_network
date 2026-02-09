@@ -89,6 +89,7 @@
         .input-wrapper {
             position: relative !important;
             width: 100% !important;
+            display: block !important;
         }
 
         .input-wrapper input {
@@ -97,6 +98,7 @@
             padding-right: 3rem !important;
             padding-top: 0.75rem !important;
             padding-bottom: 0.75rem !important;
+            box-sizing: border-box !important;
         }
 
         .input-wrapper i {
@@ -105,12 +107,38 @@
             top: 50% !important;
             transform: translateY(-50%) !important;
             z-index: 2 !important;
+            pointer-events: none !important;
         }
 
         .toggle-password {
-            right: 1.25rem !important;
-            opacity: 0.8;
-            cursor: pointer;
+            position: absolute !important;
+            right: 1rem !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            background: none !important;
+            border: none !important;
+            padding: 0.25rem !important;
+            margin: 0 !important;
+            opacity: 0.6 !important;
+            cursor: pointer !important;
+            z-index: 3 !important;
+            color: var(--text-color) !important;
+            transition: opacity 0.2s !important;
+            outline: none !important;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .toggle-password:hover {
+            opacity: 1 !important;
+        }
+
+        .toggle-password i {
+            pointer-events: none !important;
+            position: static !important;
+            transform: none !important;
         }
 
         /* Tighten Form Spacing for Viewport Fit */

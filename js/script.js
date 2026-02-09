@@ -1603,10 +1603,7 @@ function setupEventListeners() {
     });
 
     // Station search
-    const searchButtons = document.querySelectorAll('button[onclick*="searchStations"]');
-    searchButtons.forEach(button => {
-        button.addEventListener('click', searchStations);
-    });
+    // Removed redundant event listeners to prevent double execution (onclick is already in HTML)
 
     // Password strength indicator
     const passwordInputs = document.querySelectorAll('input[type="password"][id="password"]');
@@ -2169,6 +2166,18 @@ const stationData = {
 };
 
 // ===== STATION FUNCTIONS =====
+function resetMap() {
+    showNotification('Map view reset to default location', 'info');
+    // In a real app, this would interact with the map API (e.g., Leaflet or Google Maps)
+    const mapContainer = document.getElementById('map');
+    if (mapContainer && typeof initMap === 'function') {
+        initMap();
+    }
+}
+
+function toggleStationTypes() {
+    showNotification('Station filters updated', 'success');
+}
 function searchStations() {
     const searchInput = document.getElementById('locationSearch') || document.getElementById('dashboardStationSearch');
     const chargerType = document.getElementById('chargerType');
@@ -2233,11 +2242,13 @@ function showBookingModal(station) {
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
 
-    // Set minimum date to today
+    // Set minimum date to today - ensuring element exists
     const dateInput = document.getElementById('bookingDate');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
-    dateInput.value = today;
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        dateInput.value = today;
+    }
 }
 
 function createBookingModal(station) {
@@ -2752,12 +2763,12 @@ function showNotification(message, type = 'info') {
     // Add to page
     document.body.appendChild(notification);
 
-    // Auto remove after 5 seconds
+    // Auto remove after 3 seconds
     setTimeout(() => {
         if (notification.parentElement) {
             notification.remove();
         }
-    });
+    }, 3000);
 }
 
 function getNotificationIcon(type) {
@@ -3358,5 +3369,78 @@ document.addEventListener('DOMContentLoaded', function () {
     if (mobileThemeToggleBtn) {
         mobileThemeToggleBtn.addEventListener('click', handleThemeToggle);
     }
+
+    // Dashboard theme toggle buttons (desktop and mobile)
+    const desktopDashboardThemeToggleBtn = document.getElementById('desktop-dashboard-theme-toggle');
+    const mobileDashboardThemeToggleBtn = document.getElementById('mobile-dashboard-theme-toggle');
+
+    // Function to update dashboard theme toggle buttons
+    function updateDashboardThemeToggles(theme) {
+        const icon = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+        const text = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+
+        // Update desktop dashboard button
+        if (desktopDashboardThemeToggleBtn) {
+            desktopDashboardThemeToggleBtn.innerHTML = `<i class="fas ${icon}"></i> <span>${text}</span>`;
+        }
+
+        // Update mobile dashboard button
+        if (mobileDashboardThemeToggleBtn) {
+            mobileDashboardThemeToggleBtn.innerHTML = `<i class="fas ${icon}"></i>`;
+        }
+    }
+
+    // Update dashboard buttons on page load
+    const dashboardCurrentTheme = document.body.getAttribute('data-theme') || 'light';
+    updateDashboardThemeToggles(dashboardCurrentTheme);
+
+    // Add click event listeners for dashboard buttons
+    if (desktopDashboardThemeToggleBtn) {
+        desktopDashboardThemeToggleBtn.addEventListener('click', function () {
+            handleThemeToggle();
+            const newTheme = document.body.getAttribute('data-theme');
+            updateDashboardThemeToggles(newTheme);
+        });
+    }
+
+    if (mobileDashboardThemeToggleBtn) {
+        mobileDashboardThemeToggleBtn.addEventListener('click', function () {
+            handleThemeToggle();
+            const newTheme = document.body.getAttribute('data-theme');
+            updateDashboardThemeToggles(newTheme);
+        });
+    }
+
+    // Override setTheme to also update dashboard buttons
+    const originalSetTheme = setTheme;
+    setTheme = function (theme) {
+        originalSetTheme(theme);
+        updateDashboardThemeToggles(theme);
+    };
 });
 
+
+/* ===== BACK TO TOP BUTTON FUNCTIONALITY ===== */
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    if (backToTopButton) {
+        // Show/hide button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top when clicked
+        backToTopButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
