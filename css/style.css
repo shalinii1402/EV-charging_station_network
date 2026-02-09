@@ -592,7 +592,21 @@ a:hover {
 .hero-buttons {
     display: flex;
     gap: var(--spacing-md);
+    justify-content: center;
     flex-wrap: wrap;
+    margin-top: var(--spacing-xl);
+    position: relative;
+    z-index: 5;
+}
+
+.hero-buttons .btn-outline {
+    border-color: white !important;
+    color: white !important;
+}
+
+.hero-buttons .btn-outline:hover {
+    background: white !important;
+    color: var(--primary-color) !important;
 }
 
 .hero-full {
@@ -623,39 +637,38 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(26, 26, 26, 0.9), rgba(0, 102, 204, 0.7));
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 .hero-full-content {
-    color: white;
+    color: white !important;
     text-align: center;
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
     padding: var(--spacing-xl) var(--spacing-md);
     position: relative;
-    z-index: 1;
+    z-index: 2;
     animation: fadeInUp 1s ease;
 }
 
 .hero-full-content h1 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-5xl);
     margin-bottom: var(--spacing-md);
     line-height: 1.1;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
+    color: white !important;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .hero-full-content p {
-    font-size: var(--font-size-base);
+    font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.4;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    max-width: 500px;
+    line-height: 1.5;
+    color: white !important;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero-stats {
@@ -711,6 +724,8 @@ a:hover {
     align-items: center;
     justify-content: center;
     padding: var(--spacing-lg) 0;
+    background-color: var(--dark-color);
+    /* Fallback */
 }
 
 .hero-full-bg {
@@ -731,48 +746,62 @@ a:hover {
 }
 
 .hero-full .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 50, 100, 0.5));
-    z-index: -1;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
+    z-index: 1;
 }
 
+/* Consistently styled Hero 2 content */
 .hero-full-content {
-    color: white;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-    position: relative;
-    z-index: 1;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    animation: fadeInUp 1s ease;
+    max-width: 800px;
+    z-index: 2;
 }
 
 .hero-full-content h1 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-5xl);
     margin-bottom: var(--spacing-md);
     line-height: 1.1;
-    word-wrap: break-word;
-    font-weight: 700;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
-    overflow-wrap: break-word;
-    hyphens: auto;
-    display: block;
-    clear: both;
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-weight: 800;
 }
 
 .hero-full-content p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-lg);
-    line-height: 1.4;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    max-width: 500px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95) !important;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-stats .stat-number {
+    display: block;
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: #ffffff !important;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1;
+}
+
+.hero-stats .stat-label {
+    font-size: var(--font-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1.1;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.hero-stats .stat {
+    text-align: center;
+    min-width: 120px;
+    padding: var(--spacing-md);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-lg);
+    backdrop-filter: blur(8px);
+    transition: var(--transition);
 }
 
 /* Home2 Section Backgrounds */
@@ -803,12 +832,13 @@ a:hover {
     display: flex;
     justify-content: center;
     gap: var(--spacing-md);
-    margin: var(--spacing-lg) 0;
+    margin: var(--spacing-xl) 0;
     flex-wrap: wrap;
-    max-width: 400px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    clear: both;
+    position: relative;
+    z-index: 5;
 }
 
 .hero-stats .stat {
@@ -10541,7 +10571,7 @@ input:checked+.slider:before {
 }
 
 [data-theme='dark'] .hero-full .video-overlay {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 50, 100, 0.6)) !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)) !important;
 }
 
 [data-theme='dark'] .stat {
