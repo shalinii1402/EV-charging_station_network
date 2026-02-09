@@ -49,6 +49,24 @@
 
 <body>
 
+    <!-- Mobile Dashboard Header -->
+    <header class="dashboard-mobile-header">
+        <div class="header-left">
+            <button id="dashboard-hamburger" class="dashboard-hamburger" aria-label="Toggle Sidebar">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="mobile-logo">
+                <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                <span>ChargeNet EV</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <a href="index.html" class="home-link"><i class="fas fa-home"></i></a>
+        </div>
+    </header>
+
     <div class="dashboard-container">
         <!-- Sidebar Navigation -->
         <aside class="dashboard-sidebar">
@@ -71,6 +89,9 @@
                 </ul>
             </nav>
         </aside>
+
+        <!-- Sidebar Overlay -->
+        <div class="sidebar-overlay"></div>
 
         <!-- Main Dashboard Content -->
         <main class="dashboard-main">
@@ -1290,20 +1311,20 @@
         // Fallback navigation system
         function initFallbackNavigation() {
             console.log('Initializing fallback navigation...');
-            
+
             const sidebarLinks = document.querySelectorAll('.sidebar-link');
             console.log(`Found ${sidebarLinks.length} sidebar links for fallback`);
-            
+
             sidebarLinks.forEach((link, index) => {
                 // Remove existing listeners
                 const newLink = link.cloneNode(true);
                 link.parentNode.replaceChild(newLink, link);
-                
+
                 // Add fresh listener
-                newLink.addEventListener('click', function(e) {
+                newLink.addEventListener('click', function (e) {
                     e.preventDefault();
                     console.log(`Fallback: Clicked ${this.textContent.trim()}`);
-                    
+
                     if (this.dataset.action === 'logout') {
                         console.log('Logout clicked');
                         if (confirm('Are you sure you want to logout?')) {
@@ -1311,19 +1332,19 @@
                         }
                         return;
                     }
-                    
+
                     const section = this.dataset.section || this.getAttribute('href').substring(1);
                     console.log(`Fallback: Navigating to ${section}`);
-                    
+
                     // Simple section switching
                     const sections = document.querySelectorAll('.dashboard-section');
                     sections.forEach(s => s.classList.remove('active'));
-                    
+
                     const targetSection = document.getElementById(section);
                     if (targetSection) {
                         targetSection.classList.add('active');
                         console.log(`Fallback: Successfully showed ${section}`);
-                        
+
                         // Update sidebar
                         sidebarLinks.forEach(l => l.classList.remove('active'));
                         this.classList.add('active');
@@ -1333,10 +1354,10 @@
                 });
             });
         }
-        
+
         // Initialize fallback after a short delay
         setTimeout(initFallbackNavigation, 1000);
-        
+
         // Also initialize on DOM ready
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initFallbackNavigation);

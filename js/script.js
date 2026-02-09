@@ -1876,8 +1876,8 @@ function handleContactSubmit(e) {
 function initializeDashboard() {
     if (!document.querySelector('.dashboard-container')) return;
 
-    // Initialize dashboard (no hamburger needed with fixed sidebar)
-    // initializeDashboardHamburger(); // Disabled - sidebar is now fixed
+    // Initialize dashboard hamburger for mobile
+    initializeDashboardHamburger();
 
     // Load user data
     loadUserData();
@@ -1990,12 +1990,11 @@ function initializeSectionFeatures(section) {
     }
 }
 
-// Dashboard Hamburger Menu - DISABLED (sidebar is now fixed)
-/*
+// Dashboard Hamburger Menu
 function initializeDashboardHamburger() {
-    const hamburger = document.getElementById('dashboardHamburger');
+    const hamburger = document.getElementById('dashboard-hamburger');
     const sidebar = document.querySelector('.dashboard-sidebar');
-    const overlay = document.getElementById('sidebarOverlay');
+    const overlay = document.querySelector('.sidebar-overlay');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
     if (!hamburger || !sidebar || !overlay) return;
@@ -2014,36 +2013,25 @@ function initializeDashboardHamburger() {
         }
     }
 
-    // Close sidebar
-    function closeSidebar() {
-        hamburger.classList.remove('active');
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Hamburger click
     hamburger.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
 
-    // Overlay click
-    overlay.addEventListener('click', closeSidebar);
-
-    // Close sidebar when clicking a menu item
+    // Close sidebar when clicking a link
     sidebarLinks.forEach(link => {
         link.addEventListener('click', () => {
-            // Small delay to allow navigation to complete
-            setTimeout(closeSidebar, 300);
+            if (sidebar.classList.contains('active')) {
+                toggleSidebar();
+            }
         });
     });
 
     // Close sidebar on window resize to desktop
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 1024) {
-            closeSidebar();
+        if (window.innerWidth > 1024 && sidebar.classList.contains('active')) {
+            toggleSidebar();
         }
     });
 }
-*/
 
 function logout() {
     // Show confirmation
