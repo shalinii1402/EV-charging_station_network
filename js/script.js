@@ -3452,25 +3452,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* ===== BACK TO TOP BUTTON FUNCTIONALITY ===== */
 document.addEventListener('DOMContentLoaded', function () {
-    const backToTopButton = document.querySelector('.back-to-top');
+    let backToTopButton = document.querySelector('.back-to-top');
 
-    if (backToTopButton) {
-        // Show/hide button based on scroll position
-        window.addEventListener('scroll', function () {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        // Scroll to top when clicked
-        backToTopButton.addEventListener('click', function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+    // Create button dynamically if it doesn't exist
+    if (!backToTopButton) {
+        backToTopButton = document.createElement('a');
+        backToTopButton.href = '#';
+        backToTopButton.className = 'back-to-top';
+        backToTopButton.setAttribute('aria-label', 'Back to Top');
+        backToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        document.body.appendChild(backToTopButton);
     }
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 });
