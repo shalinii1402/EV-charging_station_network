@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
-            overflow: hidden;
+            overflow-y: auto;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
 
         .auth-section {
-            height: 100vh;
             min-height: 100vh;
-            padding: 0;
+            padding: 2rem 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -28,28 +28,29 @@
 
         .auth-container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 450px;
             margin: 0 auto;
+            display: block;
+            /* Removed grid */
         }
 
         .auth-card {
             width: 100%;
-            max-width: 450px;
-            padding: 1.5rem !important;
-            /* Tighten padding */
+            border-radius: var(--border-radius-xl);
+            background: var(--white);
+            padding: 2rem;
+            box-shadow: var(--shadow-xl);
         }
 
         .auth-brand {
             display: flex;
-            flex-direction: row;
-            /* Side by side */
+            flex-direction: column;
+            /* Stack logo and name for better center alignment */
             align-items: center;
             justify-content: center;
-            gap: var(--spacing-md);
-            /* Space between logo and name */
+            gap: var(--spacing-sm);
             text-decoration: none;
-            margin-bottom: var(--spacing-md);
-            /* Reduced margin */
+            margin-bottom: var(--spacing-lg);
             transition: var(--transition);
         }
 
@@ -60,30 +61,49 @@
 
         .auth-brand-name {
             font-size: var(--font-size-2xl);
-            /* Larger to match logo */
             font-weight: 800;
             color: var(--primary-color);
             margin-top: 0;
             letter-spacing: -0.5px;
+            text-align: center;
         }
 
         .auth-logo {
-            width: 50px !important;
-            /* Smaller logo for side-by-side */
-            height: 50px !important;
-            font-size: var(--font-size-xl) !important;
+            width: 60px !important;
+            height: 60px !important;
+            font-size: var(--font-size-2xl) !important;
             margin: 0 !important;
-            /* Overriding previous centering margin */
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .auth-logo img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        /* If img fails to load or using icon font */
+        .auth-logo i {
+            font-size: 1.5rem;
         }
 
         .auth-header h1 {
-            font-size: var(--font-size-xl) !important;
-            margin-bottom: 0.25rem !important;
+            font-size: var(--font-size-2xl) !important;
+            margin-bottom: 0.5rem !important;
+            text-align: center;
         }
 
         .auth-header p {
-            font-size: var(--font-size-sm) !important;
-            margin-bottom: 0.5rem !important;
+            font-size: var(--font-size-md) !important;
+            margin-bottom: 1.5rem !important;
+            text-align: center;
+            color: var(--text-light);
         }
 
         .input-wrapper {
@@ -108,6 +128,7 @@
             transform: translateY(-50%) !important;
             z-index: 2 !important;
             pointer-events: none !important;
+            color: var(--text-light);
         }
 
         .toggle-password {
@@ -141,30 +162,32 @@
             transform: none !important;
         }
 
-        /* Tighten Form Spacing for Viewport Fit */
         .form-group {
-            margin-bottom: 0.75rem !important;
+            margin-bottom: 1rem !important;
         }
 
         .form-group label {
-            margin-bottom: 0.25rem !important;
+            margin-bottom: 0.5rem !important;
             font-size: var(--font-size-sm);
+            font-weight: 500;
         }
 
         .auth-divider {
-            margin: 0.75rem 0 !important;
+            margin: 1.5rem 0 !important;
         }
 
         .social-login {
-            margin-bottom: 0.75rem !important;
+            margin-bottom: 1.5rem !important;
         }
 
         .btn-large {
             padding: 0.75rem 1.5rem !important;
+            width: 100%;
         }
 
         .auth-footer {
-            padding-top: 0.75rem !important;
+            padding-top: 1rem !important;
+            text-align: center;
         }
     </style>
 </head>
@@ -178,7 +201,8 @@
                     <div class="auth-header">
                         <a href="index.html" class="auth-brand">
                             <div class="auth-logo">
-                                <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
+                                <!-- Fallback icon if image missing, or wrapper for image -->
+                                <i class="fas fa-bolt"></i>
                             </div>
                             <span class="auth-brand-name">ChargeNet EV</span>
                         </a>
@@ -240,34 +264,6 @@
 
                     <div class="auth-footer">
                         <p>Don't have an account? <a href="register.html">Register here</a></p>
-                    </div>
-                </div>
-
-                <div class="auth-visual">
-                    <div class="visual-content">
-                        <h2>Power Your Journey</h2>
-                        <p>Join thousands of EV drivers who trust ChargeNet EV for reliable charging solutions.</p>
-                        <div class="feature-list">
-                            <div class="feature-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>500+ Charging Stations</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-bolt"></i>
-                                <span>Fast & Ultra-Fast Charging</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-mobile-alt"></i>
-                                <span>Mobile App Available</span>
-                            </div>
-                            <div class="feature-item">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Secure Payments</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="visual-image">
-                        <img src="assets/images/login-bg.jpg" alt="EV Charging">
                     </div>
                 </div>
             </div>
