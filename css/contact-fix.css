@@ -1,0 +1,66 @@
+/* ===== CONTACT ITEM ALIGNMENT FIX ===== */
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item:last-of-type {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-details {
+    width: 100%;
+}
+
+.contact-details h3 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-lg);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.contact-details p {
+    margin: 0;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.contact-details a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contact-details a:hover {
+    color: var(--primary-color);
+}
+
+/* Ensure Social Connect is also centered */
+.social-connect {
+    text-align: center;
+    margin-top: var(--spacing-xl) !important;
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+.social-links {
+    justify-content: center;
+}

@@ -1,0 +1,47 @@
+/* ===== RESPONSIVE SERVICES FIX ===== */
+@media (max-width: 1024px) {
+    .service-card {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: 0 var(--spacing-md);
+    }
+
+    .service-content {
+        padding: var(--spacing-md) 0;
+        text-align: center;
+        order: 1;
+        /* Always content first on mobile */
+    }
+
+    .service-visual {
+        order: 2;
+        /* Always visual second on mobile */
+        width: 100%;
+    }
+
+    /* Reset order for reverse sections to match normal sections on mobile */
+    .service-section.reverse .service-content {
+        order: 1;
+    }
+
+    .service-section.reverse .service-visual {
+        order: 2;
+    }
+
+    .service-visual img {
+        width: 100%;
+        height: 300px;
+        /* Reduced height for tablets */
+        object-fit: cover;
+        border-radius: var(--border-radius-lg);
+        display: block;
+        /* Ensure it's not hidden */
+    }
+}
+
+@media (max-width: 768px) {
+    .service-visual img {
+        height: 250px;
+        /* Reduced height for mobile */
+    }
+}
