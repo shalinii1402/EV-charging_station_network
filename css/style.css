@@ -13252,3 +13252,265 @@ input:checked+.slider:before {
     margin-bottom: var(--spacing-xl);
     /* Ensure consistent spacing */
 }
+
+/* ===== WALLET & PAYMENTS SECTION FIX ===== */
+.wallet-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.wallet-balance,
+.payment-methods {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.wallet-balance h3,
+.payment-methods h3 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--heading-color);
+    font-size: var(--font-size-xl);
+}
+
+.balance-amount {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.wallet-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--light-color);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.payment-icon {
+    font-size: var(--font-size-2xl);
+    color: var(--text-color);
+    width: 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-info {
+    flex: 1;
+    min-width: 150px;
+}
+
+.payment-info h4 {
+    margin: 0 0 var(--spacing-xs) 0;
+    font-size: var(--font-size-base);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.payment-info p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+.payment-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.payment-status .status-badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+}
+
+.status-badge.default {
+    background: rgba(0, 102, 204, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 102, 204, 0.2);
+}
+
+/* Mobile Responsive Fixes for Wallet */
+@media (max-width: 768px) {
+    .wallet-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .payment-icon {
+        margin-bottom: var(--spacing-xs);
+        width: auto;
+        font-size: 2rem;
+    }
+
+    .payment-info {
+        width: 100%;
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .payment-actions {
+        width: 100%;
+        margin-top: var(--spacing-sm);
+        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .payment-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .wallet-actions .btn {
+        flex: 1;
+    }
+}
+
+/* ===== RECENT TRANSACTIONS FIX ===== */
+.recent-transactions {
+    background: var(--white);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--spacing-xl);
+}
+
+.recent-transactions h3 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--heading-color);
+    font-size: var(--font-size-xl);
+}
+
+.transaction-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--light-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing-md);
+    flex-shrink: 0;
+}
+
+.transaction-icon i {
+    font-size: var(--font-size-lg);
+    color: var(--primary-color);
+}
+
+.transaction-details {
+    flex: 1;
+    min-width: 0;
+    margin-right: var(--spacing-md);
+}
+
+.transaction-details h4 {
+    margin: 0 0 2px 0;
+    font-size: var(--font-size-base);
+    color: var(--heading-color);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-details p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+}
+
+.transaction-date {
+    display: block;
+    font-size: var(--font-size-xs);
+    color: var(--text-lighter);
+    margin-top: 2px;
+}
+
+.transaction-amount {
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    white-space: nowrap;
+}
+
+.transaction-amount.negative {
+    color: var(--danger-color);
+}
+
+.transaction-amount.positive {
+    color: var(--success-color);
+}
+
+@media (max-width: 576px) {
+    .recent-transactions {
+        padding: var(--spacing-lg);
+    }
+
+    .transaction-item {
+        padding: var(--spacing-sm) 0;
+    }
+
+    .transaction-icon {
+        width: 36px;
+        height: 36px;
+        margin-right: var(--spacing-sm);
+    }
+
+    .transaction-details h4 {
+        font-size: var(--font-size-sm);
+    }
+
+    .transaction-amount {
+        font-size: var(--font-size-sm);
+    }
+}

@@ -1,0 +1,219 @@
+/* ===== AUTH LAYOUT & STYLES ===== */
+/* This file replaces inline styles for leaner HTML and centralized management */
+
+body.auth-page {
+    overflow-x: hidden;
+    /* Allow vertical scroll */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    min-height: 100vh;
+}
+
+.auth-section {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+    /* Limit width for single card */
+    margin: 0 auto;
+    display: block;
+    /* Override grid */
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 2rem !important;
+    background: var(--white);
+    border-radius: var(--border-radius-xl);
+    box-shadow: var(--shadow-xl);
+    margin: 0 auto;
+}
+
+.auth-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    margin-bottom: var(--spacing-lg);
+    transition: var(--transition);
+}
+
+.auth-brand:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.auth-brand-name {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    color: var(--primary-color);
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.auth-logo {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: var(--font-size-xl) !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.auth-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.auth-header h1 {
+    font-size: var(--font-size-2xl) !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center;
+}
+
+.auth-header p {
+    font-size: var(--font-size-base) !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.input-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    display: block !important;
+}
+
+.input-wrapper input {
+    width: 100% !important;
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    box-sizing: border-box !important;
+}
+
+.input-wrapper i {
+    position: absolute !important;
+    left: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 2 !important;
+    pointer-events: none !important;
+    color: var(--text-light);
+}
+
+.toggle-password {
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: none !important;
+    border: none !important;
+    padding: 0.25rem !important;
+    margin: 0 !important;
+    opacity: 0.6 !important;
+    cursor: pointer !important;
+    z-index: 3 !important;
+    color: var(--text-color) !important;
+    transition: opacity 0.2s !important;
+    outline: none !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.toggle-password:hover {
+    opacity: 1 !important;
+}
+
+.form-group {
+    margin-bottom: 1rem !important;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem !important;
+    display: block;
+    font-weight: 500;
+}
+
+.auth-divider {
+    margin: 1.5rem 0 !important;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.auth-divider span {
+    padding: 0 10px;
+    font-size: 0.9rem;
+}
+
+.social-login {
+    margin-bottom: 1rem !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.btn-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.btn-large {
+    padding: 0.75rem 1.5rem !important;
+    width: 100%;
+    display: block;
+}
+
+.auth-footer {
+    padding-top: 1.5rem !important;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: 1rem;
+}
+
+.password-strength {
+    margin-top: 0.5rem !important;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 1.5rem !important;
+    }
+
+    .social-login {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-brand-name {
+        font-size: 1.5rem;
+        display: block !important;
+    }
+
+    .auth-section {
+        padding: 1rem;
+    }
+}

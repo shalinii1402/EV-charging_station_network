@@ -6,193 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChargeNet EV - Login</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth-layout.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            overflow-y: auto;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        }
-
-        .auth-section {
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .auth-container {
-            width: 100%;
-            max-width: 450px;
-            margin: 0 auto;
-            display: block;
-            /* Removed grid */
-        }
-
-        .auth-card {
-            width: 100%;
-            border-radius: var(--border-radius-xl);
-            background: var(--white);
-            padding: 2rem;
-            box-shadow: var(--shadow-xl);
-        }
-
-        .auth-brand {
-            display: flex;
-            flex-direction: column;
-            /* Stack logo and name for better center alignment */
-            align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            text-decoration: none;
-            margin-bottom: var(--spacing-lg);
-            transition: var(--transition);
-        }
-
-        .auth-brand:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
-
-        .auth-brand-name {
-            font-size: var(--font-size-2xl);
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-top: 0;
-            letter-spacing: -0.5px;
-            text-align: center;
-        }
-
-        .auth-logo {
-            width: 60px !important;
-            height: 60px !important;
-            font-size: var(--font-size-2xl) !important;
-            margin: 0 !important;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-
-        .auth-logo img {
-            width: 60%;
-            height: 60%;
-            object-fit: contain;
-            filter: brightness(0) invert(1);
-        }
-
-        /* If img fails to load or using icon font */
-        .auth-logo i {
-            font-size: 1.5rem;
-        }
-
-        .auth-header h1 {
-            font-size: var(--font-size-2xl) !important;
-            margin-bottom: 0.5rem !important;
-            text-align: center;
-        }
-
-        .auth-header p {
-            font-size: var(--font-size-md) !important;
-            margin-bottom: 1.5rem !important;
-            text-align: center;
-            color: var(--text-light);
-        }
-
-        .input-wrapper {
-            position: relative !important;
-            width: 100% !important;
-            display: block !important;
-        }
-
-        .input-wrapper input {
-            width: 100% !important;
-            padding-left: 3rem !important;
-            padding-right: 3rem !important;
-            padding-top: 0.75rem !important;
-            padding-bottom: 0.75rem !important;
-            box-sizing: border-box !important;
-        }
-
-        .input-wrapper i {
-            position: absolute !important;
-            left: 1rem !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            z-index: 2 !important;
-            pointer-events: none !important;
-            color: var(--text-light);
-        }
-
-        .toggle-password {
-            position: absolute !important;
-            right: 1rem !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            background: none !important;
-            border: none !important;
-            padding: 0.25rem !important;
-            margin: 0 !important;
-            opacity: 0.6 !important;
-            cursor: pointer !important;
-            z-index: 3 !important;
-            color: var(--text-color) !important;
-            transition: opacity 0.2s !important;
-            outline: none !important;
-            line-height: 1 !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-
-        .toggle-password:hover {
-            opacity: 1 !important;
-        }
-
-        .toggle-password i {
-            pointer-events: none !important;
-            position: static !important;
-            transform: none !important;
-        }
-
-        .form-group {
-            margin-bottom: 1rem !important;
-        }
-
-        .form-group label {
-            margin-bottom: 0.5rem !important;
-            font-size: var(--font-size-sm);
-            font-weight: 500;
-        }
-
-        .auth-divider {
-            margin: 1.5rem 0 !important;
-        }
-
-        .social-login {
-            margin-bottom: 1.5rem !important;
-        }
-
-        .btn-large {
-            padding: 0.75rem 1.5rem !important;
-            width: 100%;
-        }
-
-        .auth-footer {
-            padding-top: 1rem !important;
-            text-align: center;
-        }
-    </style>
 </head>
 
-<body>
+<body class="auth-page">
     <main>
         <!-- Login Section -->
         <section class="auth-section">
@@ -201,8 +24,7 @@
                     <div class="auth-header">
                         <a href="index.html" class="auth-brand">
                             <div class="auth-logo">
-                                <!-- Fallback icon if image missing, or wrapper for image -->
-                                <i class="fas fa-bolt"></i>
+                                <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
                             </div>
                             <span class="auth-brand-name">ChargeNet EV</span>
                         </a>
