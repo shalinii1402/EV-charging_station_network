@@ -57,10 +57,10 @@
                 <span></span>
                 <span></span>
             </button>
-            <div class="mobile-logo">
+            <a href="index.html" class="mobile-logo" style="text-decoration: none;">
                 <img src="assets/images/logo.svg" alt="ChargeNet EV Logo">
                 <span>ChargeNet EV</span>
-            </div>
+            </a>
         </div>
         <div class="header-right">
             <button id="mobile-dashboard-theme-toggle" class="theme-toggle-icon" aria-label="Toggle Dark Mode">
@@ -73,10 +73,10 @@
     <!-- Desktop Dashboard Header -->
     <header class="dashboard-desktop-header">
         <div class="dashboard-header-content">
-            <div class="dashboard-header-left">
+            <a href="index.html" class="dashboard-header-left" style="text-decoration: none;">
                 <img src="assets/images/logo.svg" alt="ChargeNet EV Logo" class="dashboard-header-logo">
                 <span class="dashboard-header-brand">ChargeNet EV</span>
-            </div>
+            </a>
             <div class="dashboard-header-right">
                 <button id="desktop-dashboard-theme-toggle" class="dashboard-theme-toggle-btn"
                     aria-label="Toggle Dark Mode">
@@ -1328,127 +1328,11 @@
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/dashboard-nav-fix.js"></script>
     <script>
-        // Simple test to verify JavaScript is working
-        console.log('Dashboard page loaded');
-
-        // Fallback navigation system
-        function initFallbackNavigation() {
-            console.log('Initializing fallback navigation...');
-
-            const sidebarLinks = document.querySelectorAll('.sidebar-link');
-            console.log(`Found ${sidebarLinks.length} sidebar links for fallback`);
-
-            sidebarLinks.forEach((link, index) => {
-                // Remove existing listeners
-                const newLink = link.cloneNode(true);
-                link.parentNode.replaceChild(newLink, link);
-
-                // Add fresh listener
-                newLink.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    console.log(`Fallback: Clicked ${this.textContent.trim()}`);
-
-                    if (this.dataset.action === 'logout') {
-                        console.log('Logout clicked');
-                        if (confirm('Are you sure you want to logout?')) {
-                            window.location.href = 'index.html';
-                        }
-                        return;
-                    }
-
-                    const section = this.dataset.section || this.getAttribute('href').substring(1);
-                    console.log(`Fallback: Navigating to ${section}`);
-
-                    // Simple section switching
-                    const sections = document.querySelectorAll('.dashboard-section');
-                    sections.forEach(s => s.classList.remove('active'));
-
-                    const targetSection = document.getElementById(section);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                        console.log(`Fallback: Successfully showed ${section}`);
-
-                        // Update sidebar
-                        sidebarLinks.forEach(l => l.classList.remove('active'));
-                        this.classList.add('active');
-                    } else {
-                        console.error(`Fallback: Section ${section} not found`);
-                    }
-                });
-            });
-        }
-
-        // Initialize fallback after a short delay
-        setTimeout(initFallbackNavigation, 1000);
-
-        // Also initialize on DOM ready
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initFallbackNavigation);
-        } else {
-            initFallbackNavigation();
-        }
-
-        // Test function to verify sidebar links
-        function testSidebarLinks() {
-            const links = document.querySelectorAll('.sidebar-link');
-            console.log('Found sidebar links:', links.length);
-            links.forEach((link, index) => {
-                console.log(`Link ${index}:`, link.textContent, link.dataset.section);
-            });
-        }
-
-        // Test when page loads
+        // Dashboard Map Initialization
+        // Note: Basic navigation is handled by js/script.js
         document.addEventListener('DOMContentLoaded', function () {
-            console.log('DOM Content Loaded');
-            setTimeout(testSidebarLinks, 1000);
-
-            // Add direct click test to sidebar links
-            const sidebarLinks = document.querySelectorAll('.sidebar-link');
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    console.log('Direct click test - link clicked:', this.textContent);
-                    console.log('Data section:', this.dataset.section);
-
-                    // Simple section switch test
-                    const section = this.dataset.section || this.getAttribute('href').substring(1);
-                    console.log('Switching to section:', section);
-
-                    // Hide all sections
-                    document.querySelectorAll('.dashboard-section').forEach(s => {
-                        s.classList.remove('active');
-                    });
-
-                    // Show target section
-                    const targetSection = document.getElementById(section);
-                    if (targetSection) {
-                        targetSection.classList.add('active');
-                        console.log('Section activated successfully');
-                    } else {
-                        console.error('Section not found:', section);
-                    }
-
-                    // Update active state
-                    document.querySelectorAll('.sidebar-link').forEach(l => {
-                        l.classList.remove('active');
-                    });
-                    this.classList.add('active');
-
-                    // Initialize map if find-stations section
-                    if (section === 'find-stations') {
-                        console.log('Initializing map for find-stations section');
-                        setTimeout(() => {
-                            if (typeof initDashboardMap === 'function') {
-                                initDashboardMap();
-                            } else {
-                                console.error('initDashboardMap function not found');
-                            }
-                        }, 500);
-                    }
-                });
-            });
+            console.log('Dashboard initialized');
         });
     </script>
     <script>

@@ -8840,11 +8840,12 @@ input:checked+.slider:before {
     align-items: center;
     gap: var(--spacing-sm);
     color: var(--white);
-    font-weight: 600;
+    font-size: var(--font-size-xl);
+    font-weight: 700;
 }
 
 .mobile-logo img {
-    height: 30px;
+    height: 32px;
 }
 
 .home-link {
@@ -11729,8 +11730,8 @@ input:checked+.slider:before {
 }
 
 .dashboard-header-logo {
-    width: 45px;
-    height: 45px;
+    height: 32px;
+    width: auto;
     flex-shrink: 0;
 }
 

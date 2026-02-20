@@ -1903,18 +1903,30 @@ function initializeDashboard() {
             e.preventDefault();
 
             // Handle logout separately
-            if (this.dataset.action === 'logout') {
+            if (this.getAttribute('data-action') === 'logout') {
                 logout();
                 return;
             }
 
-            // Handle section navigation
-            const section = this.dataset.section || this.getAttribute('href').substring(1);
+            // Get section ID from data attribute or href
+            const section = this.getAttribute('data-section') ||
+                (this.getAttribute('href') ? this.getAttribute('href').replace('#', '') : '');
+
             if (section) {
                 showDashboardSection(section);
             }
         });
     });
+
+    // Initial state synchronization
+    const currentActiveLink = document.querySelector('.sidebar-link.active');
+    if (currentActiveLink) {
+        const initialSection = currentActiveLink.getAttribute('data-section') ||
+            (currentActiveLink.getAttribute('href') ? currentActiveLink.getAttribute('href').replace('#', '') : 'dashboard');
+        showDashboardSection(initialSection);
+    } else {
+        showDashboardSection('dashboard');
+    }
 
     // Setup header logout button
     const headerLogoutBtn = document.getElementById('headerLogoutBtn');
@@ -1936,35 +1948,29 @@ function initializeDashboard() {
 }
 
 function showDashboardSection(section) {
-    console.log('Showing dashboard section:', section);
+    if (!section) return;
 
     // Hide all sections
     const sections = document.querySelectorAll('.dashboard-section');
-    console.log('Found sections:', sections.length);
     sections.forEach(s => s.classList.remove('active'));
 
     // Show selected section
     const targetSection = document.getElementById(section);
     if (targetSection) {
         targetSection.classList.add('active');
-        console.log('Found and activated section:', section);
-    } else {
-        console.warn('Section not found:', section);
-        // List all available sections for debugging
-        const allSections = document.querySelectorAll('.dashboard-section');
-        console.log('Available sections:');
-        allSections.forEach(s => console.log('- ' + s.id));
     }
 
-    // Update sidebar active state
-    const sidebarLinks = document.querySelectorAll('.sidebar-link');
-    console.log('Found sidebar links:', sidebarLinks.length);
+    // Update sidebar links active state
+    const sidebarLinks = document.querySelectorAll('.dashboard-sidebar .sidebar-link');
     sidebarLinks.forEach(link => {
         link.classList.remove('active');
-        const linkSection = link.dataset.section || link.getAttribute('href').substring(1);
+
+        // Get section ID from data attribute or href
+        const linkSection = link.getAttribute('data-section') ||
+            (link.getAttribute('href') ? link.getAttribute('href').replace('#', '') : '');
+
         if (linkSection === section) {
             link.classList.add('active');
-            console.log('Activated sidebar link for:', section);
         }
     });
 
@@ -1973,16 +1979,13 @@ function showDashboardSection(section) {
 
     // Initialize section-specific functionality
     initializeSectionFeatures(section);
-
-    // Show notification for testing
-    showNotification(`Switched to ${section.charAt(0).toUpperCase() + section.slice(1)}`, 'info');
 }
 
 function initializeSectionFeatures(section) {
     switch (section) {
         case 'find-stations':
             if (!window.dashboardMap) {
-                setTimeout(() => initializeDashboardMap(), 100);
+                setTimeout(() => initDashboardMap(), 100);
             }
             break;
         case 'history':
