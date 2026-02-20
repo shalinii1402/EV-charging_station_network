@@ -6200,10 +6200,18 @@ section {
 
 .checkbox-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    /* Align to top for multi-line text */
     gap: var(--spacing-sm);
     cursor: pointer;
     font-size: var(--font-size-sm);
+}
+
+.label-text {
+    flex: 1;
+    line-height: 1.4;
+    padding-top: 2px;
+    /* Slight adjustment to align with checkbox */
 }
 
 .checkbox-label input[type="checkbox"] {
