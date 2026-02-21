@@ -2051,6 +2051,43 @@ function initializeDashboardHamburger() {
 }
 
 function logout() {
+    showLogoutModal();
+}
+
+function showLogoutModal() {
+    // Create logout modal if it doesn't exist
+    let modal = document.getElementById('logoutModal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'logoutModal';
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content confirmation-modal">
+                <div class="modal-header">
+                    <h2>Confirm Logout</h2>
+                    <button class="modal-close" onclick="closeModal('logoutModal')">&times;</button>
+                </div>
+                <div class="modal-body" style="text-align: center; padding: var(--spacing-xl);">
+                    <div class="confirmation-icon" style="margin-bottom: var(--spacing-lg);">
+                        <i class="fas fa-sign-out-alt" style="font-size: 4rem; color: var(--danger-color);"></i>
+                    </div>
+                    <h3 style="margin-bottom: var(--spacing-md); color: var(--heading-color);">Are you sure you want to logout?</h3>
+                    <p style="margin-bottom: var(--spacing-xl); color: var(--text-light);">You will need to login again to access your dashboard.</p>
+                    <div class="confirmation-actions" style="display: flex; gap: var(--spacing-md); justify-content: center;">
+                        <button class="btn btn-outline" onclick="closeModal('logoutModal')">Cancel</button>
+                        <button class="btn btn-danger" onclick="executeLogout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function executeLogout() {
     // Clear all authentication data
     localStorage.clear();
     sessionStorage.clear();
@@ -2868,15 +2905,6 @@ function toggleDarkMode() {
     localStorage.setItem('darkMode', isDarkMode);
 }
 
-function logout() {
-    if (confirm('Are you sure you want to logout?')) {
-        localStorage.removeItem('rememberUser');
-        showNotification('Logging out...', 'info');
-        setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 1000);
-    }
-}
 
 function togglePassword(fieldId) {
     const field = document.getElementById(fieldId);
